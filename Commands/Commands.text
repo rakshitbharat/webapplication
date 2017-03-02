@@ -1,0 +1,169 @@
+php artisan vendor:publish --provider="Nwidart\Modules\LaravelModulesServiceProvider"
+php artisan vendor:publish --tag="config"
+php artisan datatables:make ArticleDataTable
+php artisan migrate:generate
+
+
+Create new module.
+
+php artisan module:make blog
+Use the specified module.
+
+php artisan module:use blog
+Show all modules in command line.
+
+php artisan module:list
+Create new command for the specified module.
+
+php artisan module:make-command CustomCommand blog
+
+php artisan module:make-command CustomCommand --command=custom:command blog
+
+php artisan module:make-command CustomCommand --namespace=Modules\Blog\Commands blog
+Create new migration for the specified module.
+
+php artisan module:make-migration create_users_table blog
+
+php artisan module:make-migration create_users_table --fields="username:string, password:string" blog
+
+php artisan module:make-migration add_email_to_users_table --fields="email:string:unique" blog
+
+php artisan module:make-migration remove_email_from_users_table --fields="email:string:unique" blog
+
+php artisan module:make-migration drop_users_table blog
+Rollback, Reset and Refresh The Modules Migrations.
+
+php artisan module:migrate-rollback
+
+php artisan module:migrate-reset
+
+php artisan module:migrate-refresh
+Rollback, Reset and Refresh The Migrations for the specified module.
+
+php artisan module:migrate-rollback blog
+
+php artisan module:migrate-reset blog
+
+php artisan module:migrate-refresh blog
+Create new seed for the specified module.
+
+php artisan module:make-seed users blog
+Migrate from the specified module.
+
+php artisan module:migrate blog
+Migrate from all modules.
+
+php artisan module:migrate
+Seed from the specified module.
+
+php artisan module:seed blog
+Seed from all modules.
+
+php artisan module:seed
+Create new controller for the specified module.
+
+php artisan module:make-controller SiteController blog
+Publish assets from the specified module to public directory.
+
+php artisan module:publish blog
+Publish assets from all modules to public directory.
+
+php artisan module:publish
+Create new model for the specified module.
+
+php artisan module:make-model User blog
+
+php artisan module:make-model User blog --fillable="username,email,password"
+Create new service provider for the specified module.
+
+php artisan module:make-provider MyServiceProvider blog
+Publish migration for the specified module or for all modules.
+
+This helpful when you want to rollback the migrations. You can also run php artisan migrate instead of php artisan module:migrate command for migrate the migrations.
+
+For the specified module.
+
+php artisan module:publish-migration blog
+For all modules.
+
+php artisan module:publish-migration
+Publish Module configuration files
+
+php artisan module:publish-config <module-name>
+(optional) module-name: The name of the module to publish configuration. Leaving blank will publish all modules.
+(optional) --force: To force the publishing, overwriting already published files
+Enable the specified module.
+
+php artisan module:enable blog
+Disable the specified module.
+
+php artisan module:disable blog
+Generate new middleware class.
+
+php artisan module:make-middleware Auth
+Generate new mailable class.
+
+php artisan module:make-mail WelcomeEmail
+Generate new notification class.
+
+php artisan module:make-notification InvoicePaid
+Update dependencies for the specified module.
+
+php artisan module:update ModuleName
+Update dependencies for all modules.
+
+php artisan module:update
+Show the list of modules.
+
+php artisan module:list
+
+Default: generate all models into the default folder
+
+php artisan models:generate
+Specify path where to generate to
+
+php artisan models:generate --path="app/Models"
+Specify the namespace of the models
+
+php artisan models:generate --namespace="User11001/Models"
+Overwrite existing models
+
+php artisan models:generate --overwrite
+
+//file: composer.json
+"psr-4": {
+"App": "app/",
+"Modules": "modules/"
+}
+
+-----------------------------------------------------------------------------------------
+    Artisan command             |    Description
+-----------------------------------------------------------------------------------------
+doctrine:clear:metadata:cache	|   Clear all metadata cache of the various cache drivers.
+doctrine:clear:query:cache	|   Clear all query cache of the various cache drivers.
+doctrine:clear:result:cache	|   Clear all result cache of the various cache drivers.
+doctrine:ensure:production	|   Verify that Doctrine is properly configured for a production environment.
+doctrine:generate:proxies	|   Generates proxy classes for entity classes.
+doctrine:info                   |   Show basic information about all mapped entities.
+doctrine:schema:create          |   Processes the schema and either create it directly on EntityManager Storage Connection or generate the SQL output.
+doctrine:schema:drop            |   Drop the complete database schema of EntityManager Storage Connection or generate the corresponding SQL output.
+doctrine:schema:update          |   Executes (or dumps) the SQL needed to update the database schema to match the current mapping metadata.
+doctrine:schema:validate	|   Validate the mapping files.
+-----------------------------------------------------------------------------------------
+then run compser dump-autoload
+
+
+-----------------------------------------------------------
+- Default: generate all models into the default folder-----
+- ---------------------------------------------------------
+- php artisan models:generate------------------------------
+- Specify path where to generate to------------------------
+- ---------------------------------------------------------
+- php artisan models:generate --path="app/Models"----------
+- Specify the namespace of the models----------------------
+- ---------------------------------------------------------
+- php artisan models:generate --namespace="User11001/Models"
+- Overwrite existing models--------------------------------
+- ---------------------------------------------------------
+- php artisan models:generate --overwrite -----------------
+-----------------------------------------------------------
