@@ -11,9 +11,9 @@ return [
       | any other location as required by the application or its packages.
      */
 
-    'name' => 'Final Cut House',
-    'longName' => '2017 @ Final Cut House of Production',
-    'justName' => 'Final Cut House of Production',
+    'name' => 'Web Application',
+    'longName' => '2017 @ Web Application',
+    'justName' => 'Web Application',
     /*
       |--------------------------------------------------------------------------
       | Application Environment

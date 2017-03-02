@@ -45,16 +45,17 @@ class CustomResetPasswordEmail extends Notification {
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable) {
+        $name = config('app.name');
         if ($notifiable->role == 'normal') {
             return (new MailMessage)
-                            ->subject('Reset Your Password | MDHN Team')
+                            ->subject("Reset Your Password | $name")
                             ->line('You are receiving this email because we received a password reset request for your account.')
                             ->action('Reset Password', route('front_password_email_token', $this->token) . '?email=' . urlencode($notifiable->email))
                             ->line('If you did not request a password reset, no further action is required.');
         }
         if ($notifiable->role == 'admin') {
             return (new MailMessage)
-                            ->subject('Reset Your Password | MDHN Team')
+                            ->subject("Reset Your Password | $name")
                             ->line('You are receiving this email because we received a password reset request for your account.')
                             ->action('Reset Password', route('admin_password_email_token', $this->token) . '?email=' . urlencode($notifiable->email))
                             ->line('If you did not request a password reset, no further action is required.');
