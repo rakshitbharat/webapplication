@@ -1,22 +1,28 @@
 <aside class="main-sidebar">
     <section class="sidebar" style="height: auto;">       
-        <ul class="sidebar-menu selecterField">
+        <ul class="sidebar-menu">
             <li class="home">
-                <a href="{!! route('admin_home') !!}">
-                    <i class="icon-home"></i>
-                    <span class="title">Dashboard</span>
+                <a href="{{ route('admin_home') }}"> <i class="fa fa-tachometer" aria-hidden="true"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li class="usermanagement">
+            <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-pie-chart"></i>
-                    <span>Charts</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
+                    <i class="fa fa-folder"></i> <span>Users</span>
+                    <i class="fa fa-angle-left pull-right"></i>
                 </a>
-                <ul class="treeview-menu" style="display: block;">
-                    <li class="usermanagement"><a href="morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
+                <ul class="treeview-menu">
+                    <li class="usermanagement">
+                        <a href="{!! route('admin_usermanagement.index') !!}">
+                            <i class="fa fa-user"></i> <span>Admin Users</span>
+                        </a>
+                    </li>
+                    <li class="normalusermanagement">
+                        <a href="{!! route('admin_normalusermanagement.index') !!}" class="nav-link ">
+                            <i class="fa fa-users"></i>
+                            <span class="title">Normal Users</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
                 </ul>
             </li>
         </ul>

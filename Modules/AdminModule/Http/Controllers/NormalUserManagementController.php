@@ -15,7 +15,7 @@ use Yajra\Datatables\Datatables;
 
 class NormalUserManagementController extends Controller {
 
-    public $title = 'Customer';
+    public $title = 'Normal Users';
 
     public function index() {
         return view('adminmodule::NormalUser.list', array('title' => $this->title));

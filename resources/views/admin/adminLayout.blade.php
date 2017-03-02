@@ -49,7 +49,7 @@
                 var pageFromURL = currentLocation.split("/");
                 var pageFromClass = [];
                 var pageSelector = null;
-                $('.selecterField').find('li').each(function ()
+                $('.sidebar-menu').find('li').each(function ()
                 {
                     pageFromClass.push($(this).attr('class'));
                     if ($.inArray($(this).attr('class'), pageFromURL) > 0) {
@@ -59,12 +59,14 @@
                 );
                 var finalPageSelect = pageFromURL[pageSelector];
                 console.log(finalPageSelect);
-                $('.selecterField').find('li').each(function ()
+
+                $('.sidebar-menu').find('li').each(function ()
                 {
+                    $(this).removeClass('active');
                     if ($(this).hasClass(finalPageSelect))
                     {
-                        $(this).addClass('nav-item start active open');
-                        $(this).parent().parent().addClass('nav-item start active open');
+                        $(this).addClass('active');
+                        $(this).parent().parent().addClass('active');
                     }
                 }
 
