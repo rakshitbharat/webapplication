@@ -1,5 +1,4 @@
-<div class="main-sidebar">
-  <!-- Inner sidebar -->
-  <div class="sidebar">
-  </div><!-- /.sidebar -->
-</div><!-- /.main-sidebar -->
+<aside class="main-sidebar">
+    <section class="sidebar" style="height: auto;">       
+    </section>
+</aside>
