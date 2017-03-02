@@ -1,59 +1,38 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="utf-8" />
-        <title>{{ config('app.name') }}</title>
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-        <link href="{{asset('public/theme/assets/global/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('public/theme/assets/global/css/components.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="{{asset('public/theme/assets/pages/css/login-4.min.css')}}" rel="stylesheet" type="text/css" />
-        <link rel="shortcut icon" href="favicon.ico" />
-        <style>
-            span { 
-                color: #e61405 !important;
-            }
-        </style>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AdminLTE 2 | Log in</title>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="stylesheet" href="{{ asset('public/adminAsset/bootstrap/css/bootstrap.min.css') }}" >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css " >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" >
+        <link rel="stylesheet" href="{{ asset('public/adminAsset/dist/css/AdminLTE.min.css') }}" >
+        <link rel="stylesheet" href="{{ asset('public/adminAsset/dist/css/skins/_all-skins.min.css') }}" >
+        <link rel="stylesheet" href="{{ asset('public/adminAsset/style.css') }}" >
+        <link rel="stylesheet" href="{{ asset('public/adminAsset/plugins/iCheck/square/blue.css') }}">
     </head>
-    <body class=" login">
-        <div class="logo" style="margin: 60px auto 20px; padding: 15px; text-align: center; font-size: xx-large; color: azure;">
-            {{ config('app.name') }}
-        </div>
-        <div class="content">
+    <body class="hold-transition login-page">
+        <div class="login-box">
             @yield('content')
-            <div class="copyright">{{ config('app.longName') }}</div>
         </div>
-        <script src="{{asset('public/theme/assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/theme/assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/theme/assets/global/plugins/jquery-validation/js/jquery.validate.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('public/theme/assets/global/scripts/app.min.js')}}" type="text/javascript"></script>
-        <script type="text/javascript">
-$(function () {
-    $('.securityForm').validate({
-        errorClass: "authError",
-        errorElement: "span",
-        rules: {
-            "email": {
-                "required": true,
-            },
-            "password": {
-                "required": true,
-            }
-        },
-        messages: {
-            "email": {
-                "required": "Please enter email.",
-            },
-            "password": {
-                "required": "Please enter password.",
-            },
-            "password_confirmation": {
-                "required": "Please enter password confirmation.",
-            }
-        }
-    });
-});
+        
+        <script src="{{ asset('public/adminAsset/plugins/jQuery/jquery-2.2.3.min.js') }}" ></script>
+        <script src="{{ asset('public/adminAsset/bootstrap/js/bootstrap.min.js') }}" ></script>
+        <script src="{{ asset('public/adminAsset/plugins/fastclick/fastclick.min.js') }}" ></script>
+        <script src="{{ asset('public/adminAsset/dist/js/app.min.js') }}" ></script>
+        <script src="{{ asset('public/adminAsset/plugins/slimScroll/jquery.slimscroll.min.js') }}" ></script>
+        <script src="{{ asset('public/adminAsset/plugins/iCheck/icheck.min.js') }}" ></script>
+        
+        <script>
+            $(function () {
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_square-blue',
+                    radioClass: 'iradio_square-blue',
+                    increaseArea: '20%' // optional
+                });
+            });
         </script>
     </body>
-
 </html>
