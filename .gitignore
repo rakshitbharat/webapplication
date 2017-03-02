@@ -1,0 +1,8 @@
+/nbproject/
+/nbproject/private/
+/vendor/
+/nbproject/
+/storage/
+.env
+.auth.json
+.composer.lock
