@@ -3,4 +3,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" >
 <link rel="stylesheet" href="{{ asset('public/adminAsset/dist/css/AdminLTE.min.css') }}" >
 <link rel="stylesheet" href="{{ asset('public/adminAsset/dist/css/skins/_all-skins.min.css') }}" >
+<link rel="stylesheet" href="{{ asset('public/toastr/build/toastr.min.css')}}" >
 <link rel="stylesheet" href="{{ asset('public/adminAsset/style.css') }}" >
+<link rel="stylesheet" href="{{ asset('public/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" >
