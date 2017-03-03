@@ -31,7 +31,6 @@ class MainTransactionController extends Controller {
     }
 
     public function addEdit(Request $request) {
-            $MainTransaction = MainTransaction::dataOperation($request);
-            return response()->json(['data' => $MainTransaction]);
+        return response()->json(['data' => MainTransaction::dataOperation($request);]);
     }
 }
