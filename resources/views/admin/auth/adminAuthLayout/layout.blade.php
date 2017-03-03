@@ -14,6 +14,11 @@
         <link rel="stylesheet" href="{{ asset('public/adminAsset/plugins/iCheck/square/blue.css') }}">
     </head>
     <body class="hold-transition login-page">
+        <style>
+            .login-page {
+                background: #9c826c;
+            }
+        </style>
         <div class="login-box">
             <div class="login-logo">
                 @yield('login-logo')
