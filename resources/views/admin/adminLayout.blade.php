@@ -12,6 +12,7 @@
             @include('admin.sidebar')       
             <div class="content-wrapper" style="min-height: 916px;">
                 <section class="content-header">
+                    @include('admin.flashMessage')       
                     @yield('contentHeader')
                 </section>
                 <section class="content">
