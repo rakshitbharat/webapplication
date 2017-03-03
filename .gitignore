@@ -5,3 +5,4 @@
 .env
 .auth.json
 .composer.lock
+/storage/
