@@ -151,7 +151,7 @@ doctrine:schema:update          |   Executes (or dumps) the SQL needed to update
 doctrine:schema:validate	|   Validate the mapping files.
 -----------------------------------------------------------------------------------------
 then run compser dump-autoload
-
+php artisan doctrine:mapping:import annotation create in annotation type.
 
 -----------------------------------------------------------
 - Default: generate all models into the default folder-----
