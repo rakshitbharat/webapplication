@@ -1,4 +1,7 @@
 @extends('admin.auth.adminAuthLayout.layout')
+@section('login-logo')
+<strong>Web</strong>Application
+@endsection
 @section('content')
 <form class="login-form securityForm" role="form" method="POST" action="{!! route('admin_submit_login') !!}">
     {{ csrf_field() }}
