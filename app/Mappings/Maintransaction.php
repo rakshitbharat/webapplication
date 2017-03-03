@@ -31,14 +31,14 @@ class Maintransaction
     /**
      * @var string
      *
-     * @ORM\Column(name="debit", type="decimal", precision=19, scale=4, nullable=true)
+     * @ORM\Column(name="debit", type="decimal", precision=19, nullable=true)
      */
     private $debit;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="credit", type="decimal", precision=19, scale=4, nullable=true)
+     * @ORM\Column(name="credit", type="decimal", precision=19, nullable=true)
      */
     private $credit;
 
@@ -75,6 +75,13 @@ class Maintransaction
      * @ORM\Column(name="updated_at", type="datetime")
      */
     private $updated_at;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="transactionCode", type="string", length=255)
+     */
+    private $transactionCode;
 
 }
 

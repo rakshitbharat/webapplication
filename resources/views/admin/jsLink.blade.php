@@ -8,4 +8,5 @@
 <script src="{{ asset('public/toastr/build/toastr.min.js')}}" type="text/javascript"></script>
 <script src="{{ asset('public/datatables.net/js/jquery.dataTables.min.js')}}" type="text/javascript"></script>
 <script src="{{ asset('public/datatables.net-bs/js/dataTables.bootstrap.min.js')}}" type="text/javascript"></script>
-<script src="{{ asset('public/sweetalert2/dist/sweetalert2.min.js')}}" type="text/javascript"></script>
+<script src="{{ asset('public/sweetalert2/dist/sweetalert.min.js')}}" type="text/javascript"></script>
+<script src="{{ asset('public/select2/dist/js/select2.full.min.js')}}" type="text/javascript"></script>

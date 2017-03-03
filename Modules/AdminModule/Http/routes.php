@@ -10,5 +10,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminAuth', 'as' => 'admin_'
 	Route::get('usermanagementjson', 'UserManagementController@json')->name('usermanagementjson');
     Route::resource('usermanagement', 'UserManagementController');
     Route::resource('normalusermanagement', 'NormalUserManagementController');
+
+    Route::any('mainTransaction', 'MainTransactionController@index')->name('mainTransaction');
+    Route::any('mainTransactionJson', 'MainTransactionController@json')->name('mainTransactionJson');
+    Route::any('mainTransactionAddEdit', 'MainTransactionController@addEdit')->name('mainTransactionAddEdit');
+
     Route::get('/home', 'HomeController@index')->name('home');
 });

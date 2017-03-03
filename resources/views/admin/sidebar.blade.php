@@ -24,6 +24,13 @@
                         </a>
                     </li>
                 </ul>
+                <li class="mainTransaction">
+                    <a href="{!! route('admin_mainTransaction') !!}" class="nav-link ">
+                            <i class="fa fa-money"></i>
+                            <span class="title">Main Transaction</span>
+                            <span class="selected"></span>
+                    </a>
+                </li>
             </li>
         </ul>
     </section>

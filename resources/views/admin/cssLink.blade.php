@@ -6,4 +6,5 @@
 <link rel="stylesheet" href="{{ asset('public/toastr/build/toastr.min.css')}}" >
 <link rel="stylesheet" href="{{ asset('public/adminAsset/style.css') }}" >
 <link rel="stylesheet" href="{{ asset('public/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" >
-<link rel="stylesheet" href="{{ asset('public/sweetalert2/dist/sweetalert2.min.css') }}" >
+<link rel="stylesheet" href="{{ asset('public/sweetalert2/dist/sweetalert.css') }}" >
+<link rel="stylesheet" href="{{ asset('public/select2/dist/css/select2.min.css') }}" >
