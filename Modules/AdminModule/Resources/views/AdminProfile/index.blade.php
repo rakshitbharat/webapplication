@@ -6,14 +6,11 @@
         <div class="profile-content">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="portlet light ">
-                        <div class="portlet-title tabbable-line">
-                            <div class="caption caption-md">
-                                <i class="icon-globe theme-font hide"></i>
-                                <span class="caption-subject font-blue-madison bold uppercase">Edit Profile</span>
+                    <div class="box">
+                       <div class="box-header">
+                                <span class="caption-subject font-blue-madison bold uppercase"><strong>Edit Profile</strong></span>
                             </div>
-                        </div>
-                        <div class="portlet-body">
+                        <div class="box-body">
                             <div class="tab-content">
                                 {{ Form::open(['route'=>['admin_adminprofile_save'],'role'=>'form','id'=>'updateProfile','method' => 'POST','novalidate'=>'novalidate','enctype'=>'multipart/form-data']) }}
                                 <div class="form-body">
@@ -29,82 +26,79 @@
                                     <div id="form-errors-updateProfile"></div>
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <div class="form-group form-md-line-input form-md-floating-label has-success">
-                                                <input type="text" class="form-control" name='name' id="name" value='{{ Auth::User()->name }}'>
-                                                <label for="form_control_1">Name</label>
-                                            </div>
+                                            <div class="form-group">
+                                                    <input type="text" class="form-control" name='name' id="name" value='{{ Auth::User()->name }}'>
+                                                    <label for="form_control_1">Name</label>
+                                                </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group form-md-line-input form-md-floating-label has-success">
-                                                <input type="text" class="form-control" name='email' id="email" readonly="true" value='{{ Auth::User()->email }}'>
-                                                <label for="form_control_1">Email</label>
+                                                <div class="col-md-4">
+                                            <div class="form-group">
+                                                        <input type="text" class="form-control" name='email' id="email" readonly="true" value='{{ Auth::User()->email }}'>
+                                                        <label for="form_control_1">Email</label>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    {{ Form::close() }}
                                 </div>
-                                <div class="margiv-top-10">
-                                    <button type="submit" class="btn green">Update</button>
-                                </div>
-                                {{ Form::close() }}
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="portlet light ">
-                        <div class="portlet-title tabbable-line">
-                            <div class="caption caption-md">
-                                <i class="icon-globe theme-font hide"></i>
-                                <span class="caption-subject font-blue-madison bold uppercase">Change Password</span>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <span class="caption-subject font-blue-madison bold uppercase"><strong>Change Password</strong></span>
                             </div>
-                        </div>
-                        <div class="portlet-body">
-                            <div class="tab-content">
-                                {{ Form::open(['route'=>['admin_adminprofile_changepassword'],'role'=>'form','id'=>'changePassword','method' => 'POST','novalidate'=>'novalidate','enctype'=>'multipart/form-data']) }}
-                                <div class="form-body">
-                                    @if (count($errors) > 0)
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
+
+                            <div class="box-body">
+                                <div class="tab-content">
+                                    {{ Form::open(['route'=>['admin_adminprofile_changepassword'],'role'=>'form','id'=>'changePassword','method' => 'POST','novalidate'=>'novalidate','enctype'=>'multipart/form-data']) }}
+                                    <div class="form-body">
+                                        @if (count($errors) > 0)
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        @endif
+                                        <div id="form-errors-changePassword"></div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control" name='old_password' id="old_password" value=''>
+                                                    <label for="form_control_1">Old Password</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control" name='password' id="password" value=''>
+                                                    <label for="form_control_1">Password</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control" name='password_confirmation' id="password-confirm">
+                                                    <label for="form_control_1">Confirm Password</label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    @endif
-                                    <div id="form-errors-changePassword"></div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group form-md-line-input form-md-floating-label has-success">
-                                                <input type="password" class="form-control" name='old_password' id="old_password" value=''>
-                                                <label for="form_control_1">Old Password</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group form-md-line-input form-md-floating-label has-success">
-                                                <input type="password" class="form-control" name='password' id="password" value=''>
-                                                <label for="form_control_1">Password</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group form-md-line-input form-md-floating-label has-success">
-                                                <input type="password" class="form-control" name='password_confirmation' id="password-confirm">
-                                                <label for="form_control_1">Confirm Password</label>
-                                            </div>
-                                        </div>
+                                    <div class="margiv-top-10">
+                                        <button type="submit" class="btn green">Submit</button>
                                     </div>
+                                    {{ Form::close() }}
                                 </div>
-                                <div class="margiv-top-10">
-                                    <button type="submit" class="btn green">Submit</button>
-                                </div>
-                                {{ Form::close() }}
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- END PROFILE CONTENT -->
             </div>
-            <!-- END PROFILE CONTENT -->
         </div>
     </div>
     @endsection
