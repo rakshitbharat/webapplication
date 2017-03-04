@@ -185,7 +185,8 @@
                                                 data: $(form).serialize(),
                                                 success: function (data) {
                                                      var table = $('#dataTableBuilder').dataTable();
-                                                     table.fnDraw(false);
+                                                        table.fnDraw(false);
+                                                        $('#edit').modal('hide');
                                                 },
                                                 error: function (jqXhr) {
                                                     if (jqXhr.status === 401)
