@@ -19,5 +19,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminAuth', 'as' => 'admin_'
     Route::any('accountTypeJson', 'AccountTypeController@json')->name('accountTypeJson');
     Route::any('accountTypeAddEdit', 'AccountTypeController@addEdit')->name('accountTypeAddEdit');
     
+    Route::any('account', 'AccountController@index')->name('account');
+    Route::any('accountJson', 'AccountController@json')->name('accountJson');
+    Route::any('accountAddEdit', 'AccountController@addEdit')->name('accountAddEdit');
+
     Route::get('/home', 'HomeController@index')->name('home');
 });

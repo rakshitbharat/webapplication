@@ -38,6 +38,13 @@
                             <span class="selected"></span>
                     </a>
                 </li>
+                <li class="account">
+                    <a href="{!! route('admin_account') !!}" class="nav-link ">
+                            <i class="fa fa-server"></i>
+                            <span class="title">Account</span>
+                            <span class="selected"></span>
+                    </a>
+                </li>
             </li>
         </ul>
     </section>
