@@ -1,5 +1,7 @@
 @extends('admin.adminLayout')
 @section('content')
+<div id="message-area">
+</div>
 <div class="portlet light portlet-fit portlet-datatable bordered">
     <div class="portlet-title">
         <div class="caption">
@@ -7,7 +9,7 @@
                 <i class="icon-settings font-dark"></i>
                 <span class="caption-subject font-dark sbold uppercase">{{ $title }}</span>
             </div>
-            
+
             <div class="col-md-6 col-xs-6">
                 <div class="actions" align="right">
                     <a href="{{ Request::url() }}/create" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>Add {{ $title }}</a>
