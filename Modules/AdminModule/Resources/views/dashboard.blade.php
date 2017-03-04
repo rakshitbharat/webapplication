@@ -1,79 +1,157 @@
 @extends('admin.adminLayout')
 @section('content')
 <div class="row">
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-green">
-            <div class="inner">
-                <h3>0</h3>
+    <div class="col-md-3">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Box 1</h3>
 
-                <p>Articles</p>
+
             </div>
-            <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        This is body of the box
+                    </div>
+                </div>
+                <!-- /.row -->
             </div>
-            <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <!-- ./box-body -->
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+                        This is Footer area
+                    </div>
+
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.box-footer -->
         </div>
+        <!-- /.box -->
     </div>
+    <div class="col-md-3">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Box 2</h3>
 
-    <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-aqua-active">
-            <div class="inner">
-                <h3>0</h3>
-                <p>Comments Count</p>
+
             </div>
-            <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        This is body of the box
+                    </div>
+                </div>
+                <!-- /.row -->
             </div>
-            <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <!-- ./box-body -->
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+                        This is Footer area
+                    </div>
+
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.box-footer -->
         </div>
+        <!-- /.box -->
     </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-gray-active">
-            <div class="inner">
-                <h3>0</h3>
+    <div class="col-md-3">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Box 3</h3>
 
-                <p>Questions Count</p>
+
             </div>
-            <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        This is body of the box
+                    </div>
+                </div>
+                <!-- /.row -->
             </div>
-            <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <!-- ./box-body -->
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+                        This is Footer area
+                    </div>
+
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.box-footer -->
         </div>
+        <!-- /.box -->
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-aqua">
-            <div class="inner">
-                <h3>1</h3>
+    <div class="col-md-3">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Box 4</h3>
 
-                <p>Admin Users</p>
+
             </div>
-            <div class="icon">
-                <i class="ion ion-bag"></i>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        This is body of the box
+                    </div>
+                </div>
+                <!-- /.row -->
             </div>
-            <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <!-- ./box-body -->
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+                        This is Footer area
+                    </div>
+
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.box-footer -->
         </div>
+        <!-- /.box -->
     </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-yellow">
-            <div class="inner">
-                <h3>0</h3>
-                <p>Normal User</p>
+    <div class="col-md-3">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Box 5</h3>
+
+
             </div>
-            <div class="icon">
-                <i class="ion ion-person-add"></i>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        This is body of the box
+                    </div>
+                </div>
+                <!-- /.row -->
             </div>
-            <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <!-- ./box-body -->
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+                        This is Footer area
+                    </div>
+
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.box-footer -->
         </div>
+        <!-- /.box -->
     </div>
 </div>
 @endsection
