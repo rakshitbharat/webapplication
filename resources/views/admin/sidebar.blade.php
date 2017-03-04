@@ -31,6 +31,13 @@
                             <span class="selected"></span>
                     </a>
                 </li>
+                <li class="accountType">
+                    <a href="{!! route('admin_accountType') !!}" class="nav-link ">
+                            <i class="fa fa-server"></i>
+                            <span class="title">Account Type</span>
+                            <span class="selected"></span>
+                    </a>
+                </li>
             </li>
         </ul>
     </section>
