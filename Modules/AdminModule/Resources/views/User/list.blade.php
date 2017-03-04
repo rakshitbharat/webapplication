@@ -3,13 +3,20 @@
 <div class="portlet light portlet-fit portlet-datatable bordered">
     <div class="portlet-title">
         <div class="caption">
-            <i class="icon-settings font-dark"></i>
-            <span class="caption-subject font-dark sbold uppercase">{{ $title }}</span>
+            <div class="col-md-3">
+                <i class="icon-settings font-dark"></i>
+                <span class="caption-subject font-dark sbold uppercase">{{ $title }}</span>
+            </div>
         </div>
-        <div class="actions">
-            <a href="{{ Request::url() }}/create" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>Add {{ $title }}</a>
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <div class="actions" align="right">
+                <a href="{{ Request::url() }}/create" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>Add {{ $title }}</a>
+            </div>
         </div>
     </div>
+    <br><br>
     <div class="portlet-body">
         <div class="table-container">
             <table class="table table-striped table-bordered table-hover table-checkable" id="dataTableBuilder">
