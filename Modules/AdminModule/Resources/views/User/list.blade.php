@@ -1,34 +1,45 @@
 @extends('admin.adminLayout')
 @section('content')
 <div class="portlet light portlet-fit portlet-datatable bordered">
-    <div class="portlet-title">
-        <div class="caption">
-            <div class="col-md-6 col-xs-6">
-                <i class="icon-settings font-dark"></i>
-                <span class="caption-subject font-dark sbold uppercase">{{ $title }}</span>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <div class="col-md-6">
+                        <h3 class="box-title"><strong>{{ $title }}</strong></h3>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="actions" align="right">
+                            <a href="{{ Request::url() }}/create" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>Add {{ $title }}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="portlet-body">
+                        <div class="table-container">
+                            <table class="table table-striped table-bordered table-hover table-checkable" id="dataTableBuilder">
+                                <thead>
+                                    <tr>
+                                        <th width="20px">No</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Locked</th>
+                                        <th  width="130px">Action</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <div class="row">
+                        <div class="col-md-12">
+                            The table contains {{ $title }}.
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="col-md-6 col-xs-6">
-            <div class="actions" align="right">
-                <a href="{{ Request::url() }}/create" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>Add {{ $title }}</a>
-            </div>
-        </div>
-    </div>
-    <br><br>
-    <div class="portlet-body">
-        <div class="table-container">
-            <table class="table table-striped table-bordered table-hover table-checkable" id="dataTableBuilder">
-                <thead>
-                    <tr>
-                        <th width="20px">No</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Locked</th>
-                        <th  width="130px">Action</th>
-                    </tr>
-                </thead>
-            </table>
         </div>
     </div>
 </div>

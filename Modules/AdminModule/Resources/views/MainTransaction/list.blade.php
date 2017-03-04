@@ -3,27 +3,19 @@
 <div id="message-area">
 </div>
 <div class="portlet light portlet-fit portlet-datatable bordered">
-    <div class="portlet-title">
-        <div class="caption">
-            <div class="col-md-6 col-xs-6">
-                <i class="icon-settings font-dark"></i>
-                <span class="caption-subject font-dark sbold uppercase">{{ $title }}</span>
-            </div>
-
-            <div class="col-md-6 col-xs-6">
-                <div class="actions" align="right">
-                    <a href="{{ Request::url() }}/create" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>Add {{ $title }}</a>
-                </div>
-            </div>
-        </div>
-        <br><br>
-    </div>
-    <br>
+   
     <div class="row">
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">{{ $title }}</h3>
+                    <div class="col-md-6">
+                        <h3 class="box-title"><strong>{{ $title }}</strong></h3>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="actions" align="right">
+                            <a href="{{ Request::url() }}/create" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>Add {{ $title }}</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="box-body">
                     <div class="portlet-body">
@@ -47,7 +39,7 @@
                 <div class="box-footer">
                     <div class="row">
                         <div class="col-md-12">
-                            The table contains your transactions.
+                            The table contains {{ $title }}.
                         </div>
                     </div>
                 </div>
