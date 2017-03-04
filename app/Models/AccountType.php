@@ -19,6 +19,25 @@ class AccountType extends Model {
     public function accounts() {
         return $this->hasMany(\App\Models\Account::class, 'accountTypeId', 'id');
     }
+    public static function dataOperation($request) {
+        if($request->method() == 'GET'){
+            if($request->id){
+                return AccountType::find($request->id);
+            }else{
+                return AccountType::all();
+            }
+        }
+        if($request->method() == 'POST'){
+            AccountType::validator($request->all())->validate();
+            if($request->id){
+                $AccountType = AccountType::find($request->id);
+                return $AccountType->update($request->all());
+            }else{
+                $AccountType = new AccountType();
+                return $AccountType->create($request->all());
+            }
+        }
+    }
 
 
 }
