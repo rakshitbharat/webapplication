@@ -19,21 +19,39 @@
         <br><br>
     </div>
     <br>
-    <div class="portlet-body">
-        <div class="table-container">
-            <table class="table table-striped table-bordered table-hover table-checkable" id="dataTableBuilder">
-                <thead>
-                    <tr>
-                        <th width="20px">No</th>
-                        <th>Description</th>
-                        <th>Debit</th>
-                        <th>Credit</th>
-                        <th>Created At</th>
-                        <th>Updated At</th>
-                        <th  width="130px">Action</th>
-                    </tr>
-                </thead>
-            </table>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">{{ $title }}</h3>
+                </div>
+                <div class="box-body">
+                    <div class="portlet-body">
+                        <div class="table-container">
+                            <table class="table table-striped table-bordered table-hover table-checkable" id="dataTableBuilder">
+                                <thead>
+                                    <tr>
+                                        <th width="20px">No</th>
+                                        <th>Description</th>
+                                        <th>Debit</th>
+                                        <th>Credit</th>
+                                        <th>Created At</th>
+                                        <th>Updated At</th>
+                                        <th  width="130px">Action</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <div class="row">
+                        <div class="col-md-12">
+                            The table contains your transactions.
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
