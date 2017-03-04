@@ -15,7 +15,7 @@ use Yajra\Datatables\Datatables;
 
 class UserManagementController extends Controller {
 
-    public $title = 'Admin';
+    public $title = 'Admin Users';
 
     public function index() {
         return view('adminmodule::User.list', array('title' => $this->title));

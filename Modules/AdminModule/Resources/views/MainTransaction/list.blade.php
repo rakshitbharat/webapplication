@@ -3,20 +3,18 @@
 <div id="message-area">
 </div>
 <div class="portlet light portlet-fit portlet-datatable bordered">
-
     <div class="row">
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <div class="col-md-6">
-                        <h2><strong>{{ $title }}</strong></h2>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="actions" align="right">
-                            <a href="{{ Request::url() }}/create" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>Add {{ $title }}</a>
-                        </div>
-                    </div>
+              <h2 class="box-title"><strong>{{ $title }}</strong></h2>
+              <div class="box-tools pull-right">
+                <div class="btn-group">
+                  <button type="button" id="add" class="btn btn-box-tool">
+                    <i class="fa fa-plus"></i> Add {{ $title }}</button>
                 </div>
+              </div>
+            </div>
                 <div class="box-body">
                     <div class="portlet-body">
                         <div class="table-container">
@@ -148,6 +146,7 @@
                                 <script>
                                     function edit(id) {
                                         $('#edit').modal('show');
+                                        $('#form-errors').html('');
                                         $.getJSON("{{ route('admin_mainTransactionAddEdit') }}", {id: id}, function (json) {
                                             $.each(json.data, function (key, value) {
                                                 if (!value) {
@@ -166,6 +165,12 @@
                                             });
                                         });
                                     }
+                                    $("#add").click(function(){
+                                         $('#edit').modal('show');
+                                        $('#form-errors').html('');
+                                        $('#addEdit')[0].reset();
+                                    });
+
                                     $('form#addEdit').validate({
                                         rules: {},
                                         messages: {},
@@ -179,7 +184,8 @@
                                                 url: "{{ route('admin_mainTransactionAddEdit') }}",
                                                 data: $(form).serialize(),
                                                 success: function (data) {
-                                                    return false;
+                                                     var table = $('#dataTableBuilder').dataTable();
+                                                     table.fnDraw(false);
                                                 },
                                                 error: function (jqXhr) {
                                                     if (jqXhr.status === 401)

@@ -9,7 +9,6 @@
                     <i class="icon-settings font-dark"></i>
                     <span class="caption-subject font-dark sbold uppercase"> Add {{ $title }}</span>
                 </div>
-
             </div>
             <div class="portlet-body form">
                 {{ Form::open(['role'=>'form','id'=>'myform','method' => 'POST','novalidate'=>'novalidate','enctype'=>'multipart/form-data']) }}

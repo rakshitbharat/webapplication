@@ -8,15 +8,13 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <div class="col-md-6">
-                        <h2><strong>{{ $title }}</strong></h2>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="actions" align="right">
-                            <a href="{{ Request::url() }}/create" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>Add {{ $title }}</a>
-                        </div>
-                    </div>
+              <h2 class="box-title"><strong>{{ $title }}</strong></h2>
+              <div class="box-tools pull-right">
+                <div class="btn-group">
+                    <a href="{{ Request::url() }}/create" class="btn btn-box-tool"><span class="glyphicon glyphicon-plus"></span>Add {{ $title }}</a>
                 </div>
+              </div>
+            </div>
                 <div class="box-body">
                     <div class="portlet-body">
                         <div class="table-container">
