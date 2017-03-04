@@ -9,7 +9,7 @@ class Account extends Model {
      */
 
     protected $table = 'account';
-    protected $fillable = ['id', 'name', 'accountTypeId', 'userId'];
+    protected $fillable = ['name', 'accountTypeId', 'userId'];
 
 
     public function accountType() {

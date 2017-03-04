@@ -11,7 +11,7 @@ class AccountType extends Model {
      * Generated
      */
     protected $table = 'accountType';
-    protected $fillable = ['id', 'name', 'userId'];
+    protected $fillable = ['name', 'userId'];
 
     public function user() {
         return $this->belongsTo(\App\Models\User::class, 'userId', 'id');

@@ -10,7 +10,7 @@ class MainTransaction extends Model {
      */
 
     protected $table = 'mainTransaction';
-    protected $fillable = ['id', 'description', 'debit', 'credit', 'accountId', 'userId','transactionCode'];
+    protected $fillable = ['description', 'debit', 'credit', 'accountId', 'userId','transactionCode'];
 
 
     public function account() {
@@ -37,9 +37,13 @@ class MainTransaction extends Model {
                 return $MainTransaction->update($request->all());
             }else{
                 $MainTransaction = new MainTransaction();
-                return $MainTransaction->create($request->all());
+                return $MainTransaction->create(array_merge($request->all(), ['transactionCode' => MainTransaction::uniqueValue()]));
             }
         }
+    }
+
+    public static function uniqueValue() {
+        return md5(date("Y/m/d") . date('m/d/Y h:i:s a', time()) . uniqid());
     }
 
     /**
