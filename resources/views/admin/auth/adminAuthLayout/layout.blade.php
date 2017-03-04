@@ -16,7 +16,7 @@
     <body class="hold-transition login-page">
         <style>
             .login-page {
-                background: #367fa9;
+                background: #ecd6c0;
             }
         </style>
         <div class="login-box">
