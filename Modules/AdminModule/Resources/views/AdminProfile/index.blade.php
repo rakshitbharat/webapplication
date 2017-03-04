@@ -40,6 +40,9 @@
                                     </div>
                                 </div>
                             </div>
+ <div class="margiv-top-10">
+                                <button type="submit" class="btn green">Submit</button>
+                            </div>
                             {{ Form::close() }}
                         </div>
                     </div>
@@ -77,7 +80,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <input type="password" class="form-control" name='password' id="password" value=''>
-                                            <label for="form_control_1">Password</label>
+                                            <label for="form_control_1">New Password</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
