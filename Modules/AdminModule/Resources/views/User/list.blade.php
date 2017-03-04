@@ -7,7 +7,7 @@
             <div class="box">
                 <div class="box-header with-border">
                     <div class="col-md-6">
-                        <h3 class="box-title"><strong>{{ $title }}</strong></h3>
+                        <h2><strong>{{ $title }}</strong></h2>
                     </div>
                     <div class="col-md-6">
                         <div class="actions" align="right">
