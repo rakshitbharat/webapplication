@@ -1,7 +1,5 @@
 @extends('admin.adminLayout')
-
 @section('content')
-
 <div class="row">
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
