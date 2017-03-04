@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>dynamicTitle | @yield('title')</title>
+        <title>{{ config('app.name') }}| {{ $title or '' }}</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         @include('admin.cssLink')
     </head>
@@ -75,24 +75,7 @@
                 $(window).scrollTop(0);
             });
             function destroyFinally(id, tableName) {
-                var displayTableName = '';
-                if (tableName == 'articleCategory') {
-                    displayTableName = 'Category';
-                }
-                if (tableName == 'article') {
-                    displayTableName = 'Article';
-                }
-                if (tableName == 'users') {
-                    displayTableName = 'User';
-                }
-                if (tableName == 'cmspage') {
-                    displayTableName = 'Cms page';
-                }
-                if (tableName == 'contactus') {
-                    displayTableName = 'Contact Us Inquiry';
-                }
-                console.log(tableName);
-                var message = '' + displayTableName + ' has been deleted successfully.';
+                var message = 'Record from table ' + tableName + ' has been deleted successfully.';
                 swal({
                     title: "Are you sure?",
                     type: "warning",
@@ -129,8 +112,8 @@
                                                             console.log(data);
                                                             swal.close();
                                                             flashMessage('success', message);
-                                                            var dataTable = $('#dataTableBuilder').dataTable();
-                                                            dataTable.fnFilter(this.value);
+                                                            var table = $('#dataTableBuilder').dataTable();
+                                                    table.fnDraw(false);
                                                         },
                                                         error: function () {
                                                             swal(
@@ -142,16 +125,16 @@
                                                     });
                                                 } else {
                                                     swal.close();
-                                                    var dataTable = $('#dataTableBuilder').dataTable();
-                                                    dataTable.fnFilter(this.value);
+                                                    var table = $('#dataTableBuilder').dataTable();
+                                                    table.fnDraw(false);
                                                 }
                                             }
                                             );
                                         } else {
                                             swal.close();
                                             flashMessage('success', message);
-                                            var dataTable = $('#dataTableBuilder').dataTable();
-                                            dataTable.fnFilter(this.value);
+                                           var table = $('#dataTableBuilder').dataTable();
+                                                    table.fnDraw(false);
                                         }
                                     }
                                 }
