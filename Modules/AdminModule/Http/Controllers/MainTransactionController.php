@@ -31,6 +31,7 @@ class MainTransactionController extends Controller {
     }
 
     public function addEdit(Request $request) {
+        dd($request->all());
         $MainTransaction = MainTransaction::dataOperation($request);
         return response()->json(['data' => $MainTransaction]);
     }

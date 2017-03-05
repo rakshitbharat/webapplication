@@ -182,10 +182,16 @@
     });
 
     $("#debitSideAdder").click(function () {
-        $("#debitSideBody").clone().appendTo("#debitSideBodyAppend");
+        $("#debitSideBody").append("@include('adminmodule::MainTransaction.debitPart')");
+        $("select").select2({
+            width: '100%',
+        });
     });
     $("#creditSideAdder").click(function () {
-        $("#creditSideBody").clone().appendTo("#creditSideBodyAppend");
+        $("#creditSideBody").append("@include('adminmodule::MainTransaction.creditPart')");
+        $("select").select2({
+            width: '100%',
+        });
     });
 
     $('form#addEdit').validate({
@@ -203,7 +209,7 @@
                 success: function (data) {
                     var table = $('#dataTableBuilder').dataTable();
                     table.fnDraw(false);
-                    $('#edit').modal('hide');
+//                    $('#edit').modal('hide');
                 },
                 error: function (jqXhr) {
                     if (jqXhr.status === 401)
