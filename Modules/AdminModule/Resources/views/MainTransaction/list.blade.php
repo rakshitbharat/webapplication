@@ -45,58 +45,47 @@
         </div>
     </div>
 </div>
-<div id="edit" class="modal fade" role="dialog">
+<div id="edit"  class="modal fade"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">{{ $title }}</h4>
             </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        1 of 2
-                    </div>
-                    <div class="col">
-                        1 of 2
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        1 of 3
-                    </div>
-                    <div class="col">
-                        1 of 3
-                    </div>
-                    <div class="col">
-                        1 of 3
-                    </div>
-                </div>
-            </div>
-            <form id="addEdit" class="form-group" method="POST">
+            <form id="addEdit" class="form-horizontal" method="POST">
                 <div class="modal-body">
                     <div id="form-errors"></div>
-                    <div class = "form-group">
-                        <label for = "name">Description</label>
-                        <textarea class = "form-control" rows = "3" id="description" name="description"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for = "name">Account</label>
-                        <select class="form-control" id="accountId" name="accountId">
-                            <option >Select account</option>
-                            {{ $item = App\Models\Account::pluck('name', 'id') }}
-                            @foreach($item as $key => $items)
-                            <option value="{{ $key }}">{{ $items }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for = "name">Debit</label>
-                        <input type="number" class="form-control" id="debit" min="0" name="debit">
-                    </div>
-                    <div class="form-group">
-                        <label for = "name">Credit</label>
-                        <input type="number" class="form-control" id="credit" min="0" name="credit">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="box box-primary">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">Debit</h3>
+                                        <a href="javascript:;" id="debitSideAdder" class="label label-primary pull-right"><i class="fa fa-plus"></i> Add Entry</a>
+                                    </div>
+                                    <div class="box-body">
+                                        <div id="debitSideBody">
+                                            @include('adminmodule::MainTransaction.debitPart')
+                                        </div>
+                                        <div id="debitSideBodyAppend"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="box box-primary">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">Credit</h3>
+                                        <a href="javascript:;" id="creditSideAdder" class="label label-primary pull-right"><i class="fa fa-plus"></i> Add Entry</a>
+                                    </div>
+                                    <div class="box-body">
+                                        <div id="creditSideBody">
+                                            @include('adminmodule::MainTransaction.creditPart')
+                                        </div>
+                                        <div id="creditSideBodyAppend"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -164,6 +153,7 @@
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
     });
+    $('#edit').modal('show');
     function edit(id) {
         $('#edit').modal('show');
         $('#form-errors').html('');
@@ -189,6 +179,13 @@
         $('#edit').modal('show');
         $('#form-errors').html('');
         $('#addEdit')[0].reset();
+    });
+
+    $("#debitSideAdder").click(function () {
+        $("#debitSideBody").clone().appendTo("#debitSideBodyAppend");
+    });
+    $("#creditSideAdder").click(function () {
+        $("#creditSideBody").clone().appendTo("#creditSideBodyAppend");
     });
 
     $('form#addEdit').validate({
