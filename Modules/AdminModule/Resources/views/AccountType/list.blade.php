@@ -22,9 +22,8 @@
                                 <thead>
                                     <tr>
                                         <th width="20px">No</th>
-                                        <th>Account Name</th>
-                                        <th>Created At</th>
-                                        <th>Updated At</th>
+                                        <th>Account Type</th>
+                                        <th>Entry By (Email)</th>
                                         <th  width="130px">Action</th>
                                     </tr>
                                 </thead>
@@ -115,9 +114,8 @@
             ajax: "{{ route('admin_accountTypeJson') }}",
             columns: [
                 {data: 'id'},
-                {data: 'name'},
-                {data: 'created_at'},
-                {data: 'updated_at'},
+                {data: 'name', name: 'accountType.name'},
+                {data: 'email', name: 'users.email'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });

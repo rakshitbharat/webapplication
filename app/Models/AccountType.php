@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Validator;
+use Auth;
 
 class AccountType extends Model {
 
@@ -33,10 +34,10 @@ class AccountType extends Model {
             AccountType::validator($request->all())->validate();
             if ($request->id) {
                 $AccountType = AccountType::find($request->id);
-                return $AccountType->update($request->all());
+                return $AccountType->update((array_merge($request->all(), ['userId' => Auth::user()->id])));
             } else {
                 $AccountType = new AccountType();
-                return $AccountType->create($request->all());
+                return $AccountType->create((array_merge($request->all(), ['userId' => Auth::user()->id])));
             }
         }
     }

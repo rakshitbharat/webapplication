@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Validator;
+use Auth;
 
 class Account extends Model {
 
@@ -41,10 +42,10 @@ class Account extends Model {
             Account::validator($request->all())->validate();
             if ($request->id) {
                 $Account = Account::find($request->id);
-                return $Account->update($request->all());
+                return $Account->update(array_merge($request->all(), ['userId' => Auth::user()->id]));
             } else {
                 $Account = new Account();
-                return $Account->create($request->all());
+                return $Account->create(array_merge($request->all(), ['userId' => Auth::user()->id]));
             }
         }
     }
@@ -60,6 +61,7 @@ class Account extends Model {
         return Validator::make(
                         $request, [
                     'name' => 'required|max:255',
+                    'accountTypeId' => 'required',
         ]);
     }
 

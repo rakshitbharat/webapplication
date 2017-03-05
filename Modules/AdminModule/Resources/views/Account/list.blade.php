@@ -7,14 +7,14 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-              <h2 class="box-title"><strong>{{ $title }}</strong></h2>
-              <div class="box-tools pull-right">
-                <div class="btn-group">
-                  <button type="button" id="add" class="btn btn-box-tool">
-                    <i class="fa fa-plus"></i> Add {{ $title }}</button>
+                    <h2 class="box-title"><strong>{{ $title }}</strong></h2>
+                    <div class="box-tools pull-right">
+                        <div class="btn-group">
+                            <button type="button" id="add" class="btn btn-box-tool">
+                                <i class="fa fa-plus"></i> Add {{ $title }}</button>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
                 <div class="box-body">
                     <div class="portlet-body">
                         <div class="table-container">
@@ -22,9 +22,9 @@
                                 <thead>
                                     <tr>
                                         <th width="20px">No</th>
-                                        <th>Contact Name</th>
-                                        <th>Created At</th>
-                                        <th>Updated At</th>
+                                        <th>Account Name</th>
+                                        <th>Account Type</th>
+                                        <th>Entry By (Email)</th>
                                         <th  width="130px">Action</th>
                                     </tr>
                                 </thead>
@@ -54,10 +54,18 @@
                 <div class="modal-body">
                     <div id="form-errors"></div>
                     <div class = "form-group">
-                        <label for = "name">firstName</label>
+                        <label for = "name">Account Name</label>
                         <input class = "form-control" rows = "3" id="name" name="name"></textarea>
                     </div>
-
+                    <div class = "form-group">
+                        <select class="form-control" id="accountTypeId" name="accountTypeId">
+                            <option >Select account</option>
+                            {{ $item = App\Models\AccountType::pluck('name', 'id') }}
+                            @foreach($item as $key => $items)
+                            <option value="{{ $key }}">{{ $items }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" id="id" name="id">
@@ -67,7 +75,6 @@
             </form>
         </div>
     </div>
-</div>
     @endsection
     @section('javascript')
     <script>
@@ -113,14 +120,12 @@
             processing: true,
             serverSide: true,
             order: [[0, 'desc']],
-            ajax: "{{ route('admin_contactJson') }}",
+            ajax: "{{ route('admin_accountJson') }}",
             columns: [
-                {data: 'firstName'},
-                {data: 'lastName'},
-                {data: 'phone1'},
-                {data: 'userId'},
-                {data: 'created_at'},
-                {data: 'updated_at'},
+                {data: 'id'},
+                {data: 'name'},
+                {data: 'accountTypeName', name: 'accountType.name'},
+                {data: 'email', name: 'users.email'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });
@@ -128,7 +133,7 @@
     <script>
         function edit(id) {
             $('#edit').modal('show');
-            $.getJSON("{{ route('admin_contactAddEdit') }}", {id: id}, function (json) {
+            $.getJSON("{{ route('admin_accountAddEdit') }}", {id: id}, function (json) {
                 $.each(json.data, function (key, value) {
                     if (!value) {
                         $('input[name="' + key + '"]').val(value).prop('readonly', true);
@@ -146,11 +151,13 @@
                 });
             });
         }
-         $("#add").click(function(){
-                                         $('#edit').modal('show');
-                                        $('#form-errors').html('');
-                                        $('#addEdit')[0].reset();
-                                    });
+        $("#add").click(function () {
+            $('#edit').modal('show');
+            $('#form-errors').html('');
+            $('#addEdit')[0].reset();
+            $('#id').val();
+            $('#accountTypeId').val(null).trigger("change");
+        });
         $('form#addEdit').validate({
             rules: {},
             messages: {},
@@ -160,28 +167,28 @@
             submitHandler: function (form) {
                 $.ajax({
                     type: "POST",
-                    url: "{{ route('admin_contactAddEdit') }}",
+                    url: "{{ route('admin_accountAddEdit') }}",
                     data: $(form).serialize(),
                     success: function (data) {
-                                                        var table = $('#dataTableBuilder').dataTable();
-                                                        table.fnDraw(false);
-                                                        $('#edit').modal('hide');
-                                                },
-                                                error: function (jqXhr) {
-                                                    if (jqXhr.status === 401)
-                                                        $(location).prop('pathname', 'auth/login');
-                                                    if (jqXhr.status === 422) {
-                                                        var errors = jqXhr.responseJSON;
-                                                        errorsHtml = '<div class="alert alert-danger"><ul>';
-                                                        $.each(errors, function (key, value) {
-                                                            errorsHtml += '<li>' + value[0] + '</li>';
-                                                        });
-                                                        errorsHtml += '</ul></di>';
-                                                        $('#form-errors').html(errorsHtml);
-                                                    } else {
-                                                        $('#form-errors').html('');
-                                                    }
-                                                }
+                        var table = $('#dataTableBuilder').dataTable();
+                        table.fnDraw(false);
+                        $('#edit').modal('hide');
+                    },
+                    error: function (jqXhr) {
+                        if (jqXhr.status === 401)
+                            $(location).prop('pathname', 'auth/login');
+                        if (jqXhr.status === 422) {
+                            var errors = jqXhr.responseJSON;
+                            errorsHtml = '<div class="alert alert-danger"><ul>';
+                            $.each(errors, function (key, value) {
+                                errorsHtml += '<li>' + value[0] + '</li>';
+                            });
+                            errorsHtml += '</ul></di>';
+                            $('#form-errors').html(errorsHtml);
+                        } else {
+                            $('#form-errors').html('');
+                        }
+                    }
                 });
                 return false;
             }

@@ -24,28 +24,37 @@
                         </a>
                     </li>
                 </ul>
-                <li class="mainTransaction">
-                    <a href="{!! route('admin_mainTransaction') !!}" class="nav-link ">
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-folder"></i> <span>Economy</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="accountType">
+                        <a href="{!! route('admin_accountType') !!}" class="nav-link ">
+                            <i class="fa fa-server"></i>
+                            <span class="title">Chart of Account</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="account">
+                        <a href="{!! route('admin_account') !!}" class="nav-link ">
+                            <i class="fa fa-university"></i>
+                            <span class="title">Account</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="mainTransaction">
+                        <a href="{!! route('admin_mainTransaction') !!}" class="nav-link ">
                             <i class="fa fa-money"></i>
                             <span class="title">Main Transaction</span>
                             <span class="selected"></span>
-                    </a>
-                </li>
-                <li class="accountType">
-                    <a href="{!! route('admin_accountType') !!}" class="nav-link ">
-                            <i class="fa fa-server"></i>
-                            <span class="title">Account Type</span>
-                            <span class="selected"></span>
-                    </a>
-                </li>
-                <li class="account">
-                    <a href="{!! route('admin_account') !!}" class="nav-link ">
-                            <i class="fa fa-server"></i>
-                            <span class="title">Account</span>
-                            <span class="selected"></span>
-                    </a>
-                </li>
+                        </a>
+                    </li>
+                </ul>
             </li>
+
         </ul>
     </section>
 </aside>
