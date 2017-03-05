@@ -8,19 +8,12 @@ class Contact extends Model {
     /**
      * Generated
      */
-
     protected $table = 'contact';
-    protected $fillable = ['id', 'firstName', 'lastName', 'phone1', 'created_at','updated_at','userId'];
-
-
-    public function account() {
-        return $this->belongsTo(\App\Models\Account::class, 'accountId', 'id');
-    }
+    protected $fillable = ['firstName', 'lastName', 'phone1','userId','created_at','updated_at'];
 
     public function user() {
         return $this->belongsTo(\App\Models\User::class, 'userId', 'id');
     }
-
 
     public static function dataOperation($request) {
         if($request->method() == 'GET'){
@@ -37,13 +30,9 @@ class Contact extends Model {
                 return $Contact->update($request->all());
             }else{
                 $Contact = new Contact();
-                return $Contact->create(array_merge($request->all(), ['id' => Contact::uniqueValue()]));
+                return $Contact->create($request->all());
             }
         }
-    }
-
-    public static function uniqueValue() {
-        return md5(date("Y/m/d") . date('m/d/Y h:i:s a', time()) . uniqid());
     }
 
     /**
@@ -57,7 +46,8 @@ class Contact extends Model {
                 return Validator::make(
                                 $request, [
                             'firstName' => 'required|max:50',
-                            'accountId' => 'required',
+                            'lastName' => 'required|max:50',
+                            'phone1' => 'required',
                 ]);
     }
 }
