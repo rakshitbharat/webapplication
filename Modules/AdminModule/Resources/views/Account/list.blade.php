@@ -67,6 +67,7 @@
             </form>
         </div>
     </div>
+</div>
     @endsection
     @section('javascript')
     <script>
