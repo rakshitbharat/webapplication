@@ -147,6 +147,7 @@
                                          $('#edit').modal('show');
                                         $('#form-errors').html('');
                                         $('#addEdit')[0].reset();
+                                        $('#id').val();
                                     });
         $('form#addEdit').validate({
             rules: {},
