@@ -7,14 +7,14 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-              <h2 class="box-title"><strong>{{ $title }}</strong></h2>
-              <div class="box-tools pull-right">
-                <div class="btn-group">
-                  <button type="button" id="add" class="btn btn-box-tool">
-                    <i class="fa fa-plus"></i> Add {{ $title }}</button>
+                    <h2 class="box-title"><strong>{{ $title }}</strong></h2>
+                    <div class="box-tools pull-right">
+                        <div class="btn-group">
+                            <button type="button" id="add" class="btn btn-box-tool">
+                                <i class="fa fa-plus"></i> Add {{ $title }}</button>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
                 <div class="box-body">
                     <div class="portlet-body">
                         <div class="table-container">
@@ -141,11 +141,11 @@
                 });
             });
         }
-         $("#add").click(function(){
-                                         $('#edit').modal('show');
-                                        $('#form-errors').html('');
-                                        $('#addEdit')[0].reset();
-                                    });
+        $("#add").click(function () {
+            $('#edit').modal('show');
+            $('#form-errors').html('');
+            $('#addEdit')[0].reset();
+        });
         $('form#addEdit').validate({
             rules: {},
             messages: {},
@@ -158,25 +158,25 @@
                     url: "{{ route('admin_accountTypeAddEdit') }}",
                     data: $(form).serialize(),
                     success: function (data) {
-                                                        var table = $('#dataTableBuilder').dataTable();
-                                                        table.fnDraw(false);
-                                                        $('#edit').modal('hide');
-                                                },
-                                                error: function (jqXhr) {
-                                                    if (jqXhr.status === 401)
-                                                        $(location).prop('pathname', 'auth/login');
-                                                    if (jqXhr.status === 422) {
-                                                        var errors = jqXhr.responseJSON;
-                                                        errorsHtml = '<div class="alert alert-danger"><ul>';
-                                                        $.each(errors, function (key, value) {
-                                                            errorsHtml += '<li>' + value[0] + '</li>';
-                                                        });
-                                                        errorsHtml += '</ul></di>';
-                                                        $('#form-errors').html(errorsHtml);
-                                                    } else {
-                                                        $('#form-errors').html('');
-                                                    }
-                                                }
+                        var table = $('#dataTableBuilder').dataTable();
+                        table.fnDraw(false);
+                        $('#edit').modal('hide');
+                    },
+                    error: function (jqXhr) {
+                        if (jqXhr.status === 401)
+                            $(location).prop('pathname', 'auth/login');
+                        if (jqXhr.status === 422) {
+                            var errors = jqXhr.responseJSON;
+                            errorsHtml = '<div class="alert alert-danger"><ul>';
+                            $.each(errors, function (key, value) {
+                                errorsHtml += '<li>' + value[0] + '</li>';
+                            });
+                            errorsHtml += '</ul></di>';
+                            $('#form-errors').html(errorsHtml);
+                        } else {
+                            $('#form-errors').html('');
+                        }
+                    }
                 });
                 return false;
             }
