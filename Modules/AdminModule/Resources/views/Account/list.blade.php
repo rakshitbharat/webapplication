@@ -22,7 +22,7 @@
                                 <thead>
                                     <tr>
                                         <th width="20px">No</th>
-                                        <th>Account Name</th>
+                                        <th>Contact Name</th>
                                         <th>Created At</th>
                                         <th>Updated At</th>
                                         <th  width="130px">Action</th>
@@ -54,7 +54,7 @@
                 <div class="modal-body">
                     <div id="form-errors"></div>
                     <div class = "form-group">
-                        <label for = "name">Account Name</label>
+                        <label for = "name">firstName</label>
                         <input class = "form-control" rows = "3" id="name" name="name"></textarea>
                     </div>
 
@@ -112,10 +112,12 @@
             processing: true,
             serverSide: true,
             order: [[0, 'desc']],
-            ajax: "{{ route('admin_accountJson') }}",
+            ajax: "{{ route('admin_contactJson') }}",
             columns: [
-                {data: 'id'},
-                {data: 'name'},
+                {data: 'firstName'},
+                {data: 'lastName'},
+                {data: 'phone1'},
+                {data: 'userId'},
                 {data: 'created_at'},
                 {data: 'updated_at'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
@@ -125,7 +127,7 @@
     <script>
         function edit(id) {
             $('#edit').modal('show');
-            $.getJSON("{{ route('admin_accountAddEdit') }}", {id: id}, function (json) {
+            $.getJSON("{{ route('admin_contactAddEdit') }}", {id: id}, function (json) {
                 $.each(json.data, function (key, value) {
                     if (!value) {
                         $('input[name="' + key + '"]').val(value).prop('readonly', true);
@@ -158,7 +160,7 @@
             submitHandler: function (form) {
                 $.ajax({
                     type: "POST",
-                    url: "{{ route('admin_accountAddEdit') }}",
+                    url: "{{ route('admin_contactAddEdit') }}",
                     data: $(form).serialize(),
                     success: function (data) {
                                                         var table = $('#dataTableBuilder').dataTable();
