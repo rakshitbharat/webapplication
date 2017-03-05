@@ -56,7 +56,7 @@ class Contact extends Model {
     protected static function validator($request) {
                 return Validator::make(
                                 $request, [
-                            'description' => 'required|max:255',
+                            'firstName' => 'required|max:50',
                             'accountId' => 'required',
                 ]);
     }
