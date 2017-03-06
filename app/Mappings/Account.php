@@ -49,6 +49,20 @@ class Account
     private $userId;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="openingBalance", type="decimal", precision=19, nullable=true)
+     */
+    private $openingBalance;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="currentBalance", type="decimal", precision=19, nullable=true)
+     */
+    private $currentBalance;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime")

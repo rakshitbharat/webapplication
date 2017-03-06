@@ -1,4 +1,6 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Validator;
@@ -9,10 +11,8 @@ class Account extends Model {
     /**
      * Generated
      */
-
     protected $table = 'account';
-    protected $fillable = ['name', 'accountTypeId', 'userId'];
-
+    protected $fillable = ['name', 'accountTypeId', 'userId', 'openingBalance', 'currentBalance'];
 
     public function accountType() {
         return $this->belongsTo(\App\Models\Account::class, 'accountTypeId', 'id');
@@ -64,6 +64,5 @@ class Account extends Model {
                     'accountTypeId' => 'required',
         ]);
     }
-
 
 }

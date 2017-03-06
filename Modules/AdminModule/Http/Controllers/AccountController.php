@@ -20,7 +20,7 @@ class AccountController extends Controller {
     public function json() {
         $all_category = Account::leftJoin('accountType', 'accountType.id', '=', 'account.accountTypeId')
                 ->leftJoin('users', 'users.id', '=', 'account.userId')
-                ->select('account.id', 'account.name', 'accountType.name as accountTypeName','users.email');
+                ->select('account.id', 'account.name', 'accountType.name as accountTypeName','currentBalance','users.email');
         ;
         return Datatables::of($all_category)
                         ->addIndexColumn()
