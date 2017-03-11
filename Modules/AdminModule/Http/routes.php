@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'admin', 'middleware' => 'adminAuth', 'as' => 'admin_', 'namespace' => 'Modules\AdminModule\Http\Controllers'], function () {
+    Route::group(['prefix' => 'admin', 'middleware' => 'adminAuth', 'as' => 'admin_', 'namespace' => 'Modules\AdminModule\Http\Controllers'], function () {
     Route::any('destroyFinally', 'CommonController@deleteCommonWithAjax')->name('destroyFinally');
     Route::post('lockUser', 'CommonController@lockUser')->name('lockUser');
     Route::any('adminprofile', 'AdminProfileController@index')->name('adminprofile');
@@ -14,16 +14,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminAuth', 'as' => 'admin_'
     Route::any('mainTransaction', 'MainTransactionController@index')->name('mainTransaction');
     Route::any('mainTransactionJson', 'MainTransactionController@json')->name('mainTransactionJson');
     Route::any('mainTransactionAddEdit', 'MainTransactionController@addEdit')->name('mainTransactionAddEdit');
-    Route::any('mainTransactionDeleteByTransactionCode', 'MainTransactionController@deleteByTransactionCode')->name('mainTransactionDeleteByTransactionCode');
 
     Route::any('accountType', 'AccountTypeController@index')->name('accountType');
     Route::any('accountTypeJson', 'AccountTypeController@json')->name('accountTypeJson');
     Route::any('accountTypeAddEdit', 'AccountTypeController@addEdit')->name('accountTypeAddEdit');
-
+    
     Route::any('account', 'AccountController@index')->name('account');
     Route::any('accountJson', 'AccountController@json')->name('accountJson');
     Route::any('accountAddEdit', 'AccountController@addEdit')->name('accountAddEdit');
-
+    
     Route::any('contact', 'ContactController@index')->name('contact');
     Route::any('contactJson', 'ContactController@json')->name('contactJson');
     Route::any('contactAddEdit', 'ContactController@addEdit')->name('contactAddEdit');
