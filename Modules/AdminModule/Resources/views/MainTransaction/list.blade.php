@@ -22,11 +22,10 @@
                                 <thead>
                                     <tr>
                                         <th width="20px">No</th>
-                                        <th>Description</th>
-                                        <th>Debit</th>
-                                        <th>Credit</th>
-                                        <th>Transaction Code</th>
-                                        <th>Created At</th>
+                                        <th>Latest Description</th>
+                                        <th>Debit Total</th>
+                                        <th>Credit Total</th>
+                                        <th>Latest Transaction Code</th>
                                         <th>Updated At</th>
                                         <th  width="130px">Action</th>
                                     </tr>
@@ -144,10 +143,9 @@
         columns: [
             {data: 'id'},
             {data: 'description'},
-            {data: 'debit'},
-            {data: 'credit'},
+            {data: 'sumDebit', name: 'debit'},
+            {data: 'sumCredit', name: 'credit'},
             {data: 'transactionCode'},
-            {data: 'created_at'},
             {data: 'updated_at'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
