@@ -25,6 +25,7 @@
                                         <th>Description</th>
                                         <th>Debit</th>
                                         <th>Credit</th>
+                                        <th>Transaction Code</th>
                                         <th>Created At</th>
                                         <th>Updated At</th>
                                         <th  width="130px">Action</th>
@@ -65,7 +66,6 @@
                                     </div>
                                     <div class="box-body">
                                         <div id="debitSideBody">
-                                            @include('adminmodule::MainTransaction.debitPart')
                                         </div>
                                         <div id="debitSideBodyAppend"></div>
                                     </div>
@@ -79,7 +79,6 @@
                                     </div>
                                     <div class="box-body">
                                         <div id="creditSideBody">
-                                            @include('adminmodule::MainTransaction.creditPart')
                                         </div>
                                         <div id="creditSideBodyAppend"></div>
                                     </div>
@@ -89,7 +88,6 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="hidden" id="id" name="id">
                     <button type="submit" class="btn btn-primary">Save</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
@@ -148,12 +146,12 @@
             {data: 'description'},
             {data: 'debit'},
             {data: 'credit'},
+            {data: 'transactionCode'},
             {data: 'created_at'},
             {data: 'updated_at'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
     });
-    $('#edit').modal('show');
     function edit(id) {
         $('#edit').modal('show');
         $('#form-errors').html('');
@@ -182,12 +180,14 @@
     });
 
     $("#debitSideAdder").click(function () {
+        var uniqueidmaker = uniqId();
         $("#debitSideBody").append("@include('adminmodule::MainTransaction.debitPart')");
         $("select").select2({
             width: '100%',
         });
     });
     $("#creditSideAdder").click(function () {
+        var uniqueidmaker = uniqId();
         $("#creditSideBody").append("@include('adminmodule::MainTransaction.creditPart')");
         $("select").select2({
             width: '100%',
@@ -230,5 +230,8 @@
             return false;
         }
     });
+    function uniqId() {
+        return Math.round(new Date().getTime() + (Math.random() * 100));
+    }
 </script>
 @endsection
