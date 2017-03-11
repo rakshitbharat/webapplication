@@ -115,7 +115,6 @@
         "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
 
             var numStart = this.fnPagingInfo().iStart;
-
             var index = numStart + iDisplayIndexFull + 1;
             $("td:first", nRow).html(index);
             return nRow;
@@ -176,7 +175,6 @@
         $('#form-errors').html('');
         $('#addEdit')[0].reset();
     });
-
     $("#debitSideAdder").click(function () {
         var uniqueidmaker = uniqId();
         $("#debitSideBody").append("@include('adminmodule::MainTransaction.debitPart')");
@@ -191,7 +189,6 @@
             width: '100%',
         });
     });
-
     $('form#addEdit').validate({
         rules: {},
         messages: {},
@@ -205,9 +202,10 @@
                 url: "{{ route('admin_mainTransactionAddEdit') }}",
                 data: $(form).serialize(),
                 success: function (data) {
+                    swal.close();
                     var table = $('#dataTableBuilder').dataTable();
                     table.fnDraw(false);
-//                    $('#edit').modal('hide');
+                    $('#edit').modal('hide');
                 },
                 error: function (jqXhr) {
                     if (jqXhr.status === 401)
@@ -230,6 +228,37 @@
     });
     function uniqId() {
         return Math.round(new Date().getTime() + (Math.random() * 100));
+    }
+    function mainTransactionDeleteByTransactionCode(transactionCode) {
+        swal({
+            title: "Are you sure?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel !",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $.ajax({
+                            type: "GET",
+                            url: '{!! route('admin_mainTransactionDeleteByTransactionCode') !!}',
+                            data: {transactionCode: transactionCode},
+                            success: function (data) {
+                                swal.close();
+                                flashMessage('success', '' + data + ' Records deleted');
+                                var table = $('#dataTableBuilder').dataTable();
+                                table.fnDraw(false);
+                            }
+                        }
+                        );
+                    } else {
+                        swal.close();
+                    }
+
+                });
     }
 </script>
 @endsection
