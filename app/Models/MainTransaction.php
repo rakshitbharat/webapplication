@@ -30,7 +30,6 @@ class MainTransaction extends Model {
             }
         }
         if ($request->method() == 'POST') {
-//            MainTransaction::validator($request->all())->validate();
             if ($request->id) {
                 $MainTransaction = MainTransaction::find($request->id);
                 return $MainTransaction->update($request->all());
@@ -52,21 +51,6 @@ class MainTransaction extends Model {
 
     public static function uniqueValue() {
         return md5(date("Y/m/d") . date('m/d/Y h:i:s a', time()) . uniqid());
-    }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array $request
-     *
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected static function validator($request) {
-        return Validator::make(
-                        $request, [
-                    'description' => 'required|max:255',
-                    'accountId' => 'required',
-        ]);
     }
 
 }
