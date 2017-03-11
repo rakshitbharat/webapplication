@@ -64,7 +64,7 @@
                     </div>
                     <div class = "form-group">
                         <label for = "name">Current Balance</label>
-                        <input type="number" class="form-control" rows = "3" min="0" id="currentBalance" name="currentBalance"></textarea>
+                        <input type="number" class="form-control" rows = "3" min="0" readonly id="currentBalance" name="currentBalance"></textarea>
                     </div>
                     <div class = "form-group">
                         <select class="form-control" id="accountTypeId" name="accountTypeId">
@@ -143,8 +143,6 @@
     <script>
         function edit(id) {
             $('#edit').modal('show');
-            $('#openingBalance').attr('readonly', true);
-            $('#currentBalance').attr('readonly', false);
             $.getJSON("{{ route('admin_accountAddEdit') }}", {id: id}, function (json) {
                 $.each(json.data, function (key, value) {
                     if (!value) {
@@ -167,13 +165,13 @@
             $('#edit').modal('show');
             $('#form-errors').html('');
             $('#addEdit')[0].reset();
-            $('#id').val();
+            $('#id').val(null);
             $('#accountTypeId').val(null).trigger("change");
-            $('#openingBalance').attr('readonly', false);
-            $('#currentBalance').attr('readonly', true);
         });
         $("#openingBalance").keyup(function () {
-            $('#currentBalance').val(this.value);
+            if($('#id').val() == ''){
+                $('#currentBalance').val(this.value);
+            }
         });
         $('form#addEdit').validate({
             rules: {},
