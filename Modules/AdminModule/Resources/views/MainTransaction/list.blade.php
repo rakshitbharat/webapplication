@@ -227,7 +227,7 @@
                     if (jqXhr.status === 422) {
                         var errors = jqXhr.responseJSON;
                         errorsHtml = '<div class="alert alert-danger"><ul>';
-                        $.each(errors, function (key, value) {
+                        $.each(errors[0], function (key, value) {
                             errorsHtml += '<li>' + value[0] + '</li>';
                         });
                         errorsHtml += '</ul></di>';
