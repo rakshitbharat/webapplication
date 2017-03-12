@@ -9,18 +9,19 @@
                 @if($mainTransactions->debit != '')
                 <div class='form-group'>
                     <div class='col-md-4'>
-                        <textarea class='form-control' id='description' name='{{ $mainTransactions->id }}[debit][description]'>{{ $mainTransactions->description }}</textarea>
+                        <textarea class='form-control' id='description' name='transactionCode[{{ $mainTransactions->id }}][description]'>{{ $mainTransactions->description }}</textarea>
                         <div class='help'>Description</div>
                     </div>
                     <div class='col-sm-5'>
-                        <select class='form-control' id='{{ $mainTransactions->id }}debitaccountId' name='{{ $mainTransactions->id }}[debit][accountId]'>
+                        <select class='form-control' id='{{ $mainTransactions->id }}debitaccountId' name='transactionCode[{{ $mainTransactions->id }}][accountId]'>
                             <option></option>{{ $item = App\Models\Account::pluck('name', 'id') }}@foreach($item as $key => $items)
                             <option value='{{ $key }}'>{{ $items }}</option>@endforeach</select>Account</div>
                     <div class='col-sm-3'>
-                        <input type='number' class='form-control' id='amount' min='0' name='{{ $mainTransactions->id }}[debit][debit]' value='{{ $mainTransactions->debit }}'>
+                        <input type='number' class='form-control' id='amount' min='0' name='transactionCode[{{ $mainTransactions->id }}][debit]' value='{{ $mainTransactions->debit }}'>
                         <div class='help'>Amount</div>
                     </div>
                 </div>
+                <input type='hidden' name='transactionCode[{{ $mainTransactions->id }}][id]' value='{{ $mainTransactions->id }}'>
                 <script type = "text/javascript">
                     $("select").select2({
                         width: '100%',
@@ -42,18 +43,19 @@
                 @if($mainTransactions->credit != '')
                 <div class='form-group'>
                     <div class='col-md-4'>
-                        <textarea class='form-control' id='description' name='{{ $mainTransactions->id }}[credit][description]'>{{ $mainTransactions->description }}</textarea>
+                        <textarea class='form-control' id='description' name='transactionCode[{{ $mainTransactions->id }}][description]'>{{ $mainTransactions->description }}</textarea>
                         <div class='help'>Description</div>
                     </div>
                     <div class='col-sm-5'>
-                        <select class='form-control' id='{{ $mainTransactions->id }}creditaccountId' name='{{ $mainTransactions->id }}[credit][accountId]'>
+                        <select class='form-control' id='{{ $mainTransactions->id }}creditaccountId' name='transactionCode[{{ $mainTransactions->id }}][accountId]'>
                             <option></option>{{ $item = App\Models\Account::pluck('name', 'id') }}@foreach($item as $key => $items)
                             <option value='{{ $key }}'>{{ $items }}</option>@endforeach</select>Account</div>
                     <div class='col-sm-3'>
-                        <input type='number' class='form-control' id='amount' min='0' name='{{ $mainTransactions->id }}[credit][credit]' value='{{ $mainTransactions->credit }}'>
+                        <input type='number' class='form-control' id='amount' min='0' name='transactionCode[{{ $mainTransactions->id }}][credit]' value='{{ $mainTransactions->credit }}'>
                         <div class='help'>Amount</div>
                     </div>
                 </div>
+                <input type='hidden' name='transactionCode[{{ $mainTransactions->id }}][id]' value='{{ $mainTransactions->id }}'>
                 <script type = "text/javascript">
                     $("select").select2({
                         width: '100%',

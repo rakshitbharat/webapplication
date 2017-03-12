@@ -56,34 +56,28 @@
                 <div class="modal-body">
                     <div id="form-errors"></div>
                     <div class="container" id="addEditPlace">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="box box-primary">
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title">Debit</h3>
-                                        <a href="javascript:;" id="debitSideAdder" class="label label-primary pull-right"><i class="fa fa-plus"></i> Add Entry</a>
-                                    </div>
-                                    <div class="box-body">
-                                        <div id="debitSideBody">
-                                        </div>
-                                        <div id="debitSideBodyAppend"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="box box-primary">
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title">Credit</h3>
-                                        <a href="javascript:;" id="creditSideAdder" class="label label-primary pull-right"><i class="fa fa-plus"></i> Add Entry</a>
-                                    </div>
-                                    <div class="box-body">
-                                        <div id="creditSideBody">
-                                        </div>
-                                        <div id="creditSideBodyAppend"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="addModel" class="modal fade"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{ $title }}</h4>
+            </div>
+            <form id="addForm" class="form-horizontal" method="POST">
+                <div class="modal-body">
+                    <div id="form-errors-addModel"></div>
+                    <div class="container">
+                        @include('adminmodule::MainTransaction.debitcreditAdd')
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -154,9 +148,7 @@
         });
     }
     $("#add").click(function () {
-        $('#edit').modal('show');
-        $('#form-errors').html('');
-        $('#addEdit')[0].reset();
+        $('#addModel').modal('show');
     });
     $("#debitSideAdder").click(function () {
         var uniqueidmaker = uniqId();
@@ -203,6 +195,43 @@
                         $('#form-errors').html(errorsHtml);
                     } else {
                         $('#form-errors').html('');
+                    }
+                }
+            });
+            return false;
+        }
+    });
+    $('form#addForm').validate({
+        rules: {},
+        messages: {},
+        errorPlacement: function (error, element) {
+            error.insertAfter(element);
+        },
+        submitHandler: function (form) {
+            console.log(form);
+            $.ajax({
+                type: "POST",
+                url: "{{ route('admin_mainTransactionAddEdit') }}",
+                data: $(form).serialize(),
+                success: function (data) {
+                    swal.close();
+                    var table = $('#dataTableBuilder').dataTable();
+                    table.fnDraw(false);
+                    $('#addModel').modal('hide');
+                },
+                error: function (jqXhr) {
+                    if (jqXhr.status === 401)
+                        $(location).prop('pathname', 'auth/login');
+                    if (jqXhr.status === 422) {
+                        var errors = jqXhr.responseJSON;
+                        errorsHtml = '<div class="alert alert-danger"><ul>';
+                        $.each(errors, function (key, value) {
+                            errorsHtml += '<li>' + value[0] + '</li>';
+                        });
+                        errorsHtml += '</ul></di>';
+                        $('#form-errors-addModel').html(errorsHtml);
+                    } else {
+                        $('#form-errors-addModel').html('');
                     }
                 }
             });

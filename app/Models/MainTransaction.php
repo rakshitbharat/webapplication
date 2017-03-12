@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Validator;
+use Auth;
 
 class MainTransaction extends Model {
 
@@ -30,19 +31,22 @@ class MainTransaction extends Model {
             }
         }
         if ($request->method() == 'POST') {
-//            MainTransaction::validator($request->all())->validate();
-            if ($request->id) {
-                $MainTransaction = MainTransaction::find($request->id);
-                return $MainTransaction->update($request->all());
+            if (array_key_exists('transactionCode', $request->all())) {
+                $requestAll = $request->all()['transactionCode'];
+                foreach ($requestAll as $key => $requestAlls) {
+                    $MainTransaction = MainTransaction::find($requestAlls['id']);
+                    $MainTransaction->update(array_merge($requestAlls, ['userId' => Auth::user()->id]));
+                }
+                exit;
             } else {
                 $MainTransaction = new MainTransaction();
                 $uniqueValue = MainTransaction::uniqueValue();
                 foreach ($request->all() as $key => $requestInPart) {
                     if (array_key_exists('debit', $requestInPart)) {
-                        $MainTransaction->create(array_merge($requestInPart['debit'], ['transactionCode' => $uniqueValue]));
+                        $MainTransaction->create(array_merge($requestInPart['debit'], ['transactionCode' => $uniqueValue, 'userId' => Auth::user()->id]));
                     }
                     if (array_key_exists('credit', $requestInPart)) {
-                        $MainTransaction->create(array_merge($requestInPart['credit'], ['transactionCode' => $uniqueValue]));
+                        $MainTransaction->create(array_merge($requestInPart['credit'], ['transactionCode' => $uniqueValue, 'userId' => Auth::user()->id]));
                     }
                 }
                 exit;
@@ -52,21 +56,6 @@ class MainTransaction extends Model {
 
     public static function uniqueValue() {
         return md5(date("Y/m/d") . date('m/d/Y h:i:s a', time()) . uniqid());
-    }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array $request
-     *
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected static function validator($request) {
-        return Validator::make(
-                        $request, [
-                    'description' => 'required|max:255',
-                    'accountId' => 'required',
-        ]);
     }
 
 }
