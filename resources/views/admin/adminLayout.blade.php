@@ -167,6 +167,9 @@ function flashMessage(type, message) {
         Command: toastr[type](message);
     });
 }
+$("select").select2({
+    width: '100%',
+});
         </script>
     </body>
 </html>
