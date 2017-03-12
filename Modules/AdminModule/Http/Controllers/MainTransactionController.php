@@ -33,7 +33,44 @@ class MainTransactionController extends Controller {
     public function addEdit(Request $request) {
         if ($request->method() == 'POST') {
             if (array_key_exists('transactionCode', $request->all())) {
-                
+                $message = array();
+                $requestAll = $request->all()['transactionCode'];
+                $totalDebitAmount = 0;
+                $totalCreditAmount = 0;
+                $accountId = array();
+                foreach ($requestAll as $key => $requestAlls) {
+                    if (!$requestAlls['description']) {
+                        $message['error'][] = 'Description is empty in debit side';
+                    }
+                    if (!$requestAlls['accountId']) {
+                        $message['error'][] = 'Account is empty in debit side';
+                    } else {
+                        $accountId[] = $requestAlls['accountId'];
+                    }
+                    if (array_key_exists('debit', $requestAlls)) {
+                        if (!$requestAlls['debit']) {
+                            $message['error'][] = 'Amount debit is empty in debit side';
+                        } else {
+                            $totalDebitAmount += $requestAlls['debit'];
+                        }
+                    }
+                    if (array_key_exists('credit', $requestAlls)) {
+                        if (!$requestAlls['credit']) {
+                            $message['error'][] = 'Amount credit is empty in credit side';
+                        } else {
+                            $totalCreditAmount += $requestAlls['credit'];
+                        }
+                    }
+                }
+                if ($totalDebitAmount !== $totalCreditAmount) {
+                    $message['error'][] = 'Amount should be in balance at both side';
+                }
+                if (count(array_unique($accountId)) < count($accountId)) {
+                    $message['error'][] = 'Amount selection should be unique in both side';
+                }
+                if (!empty($message)) {
+                    return response()->json([$message], 422);
+                }
             } else {
                 $message = array();
                 if (empty($request->all())) {
