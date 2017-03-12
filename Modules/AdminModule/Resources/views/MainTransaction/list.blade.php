@@ -148,6 +148,8 @@
         });
     }
     $("#add").click(function () {
+        $('#debitSideBody').html('');
+        $('#creditSideBody').html('');
         $('#addModel').modal('show');
     });
     $("#debitSideAdder").click(function () {
@@ -240,6 +242,9 @@
     });
     function uniqId() {
         return Math.round(new Date().getTime() + (Math.random() * 100));
+    }
+    function removeSelf(object) {
+        $(object).parent().parent().remove();
     }
     function mainTransactionDeleteByTransactionCode(transactionCode) {
         swal({
