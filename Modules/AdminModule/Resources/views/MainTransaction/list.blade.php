@@ -55,7 +55,7 @@
             <form id="addEdit" class="form-horizontal" method="POST">
                 <div class="modal-body">
                     <div id="form-errors"></div>
-                    <div class="container">
+                    <div class="container" id="addEditPlace">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="box box-primary">
@@ -97,9 +97,6 @@
 @endsection
 @section('javascript')
 <script>
-    $("select").select2({
-        width: '100%',
-    });
     $.fn.dataTableExt.oApi.fnPagingInfo = function (oSettings) {
         return {
             "iStart": oSettings._iDisplayStart,
@@ -149,25 +146,11 @@
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
     });
-    function edit(id) {
+    function edit(transactionCode, tableName) {
         $('#edit').modal('show');
         $('#form-errors').html('');
-        $.getJSON("{{ route('admin_mainTransactionAddEdit') }}", {id: id}, function (json) {
-            $.each(json.data, function (key, value) {
-                if (!value) {
-                    $('input[name="' + key + '"]').val(value).prop('readonly', true);
-                    ;
-                    $('textarea[name="' + key + '"]').val(value).prop('readonly', true);
-                    ;
-                    $("select[name=" + key + "]").val(value).trigger("change").prop('readonly', true);
-                    ;
-                } else {
-                    $('input[name="' + key + '"]').val(value);
-                    $('textarea[name="' + key + '"]').val(value);
-                    $("select[name=" + key + "]").val(value).trigger("change");
-                }
-
-            });
+        $.post("{{ route('admin_transactionGroupEdit') }}", {transactionCode: transactionCode}, function (data) {
+            $('#addEditPlace').html(data);
         });
     }
     $("#add").click(function () {
@@ -260,5 +243,8 @@
 
                 });
     }
+    $("select").select2({
+        width: '100%',
+    });
 </script>
 @endsection

@@ -35,6 +35,11 @@ class MainTransactionController extends Controller {
         return response()->json(['data' => $MainTransaction]);
     }
 
+    public function transactionGroupEdit(Request $request) {
+        $mainTransaction = MainTransaction::where('transactionCode', '=', $request->transactionCode)->get();
+        return view('adminmodule::MainTransaction.debitcreditEdit', array('mainTransaction' => $mainTransaction));
+    }
+
     public function deleteByTransactionCode(Request $request) {
         return MainTransaction::where('transactionCode', '=', $request->transactionCode)->delete();
     }
