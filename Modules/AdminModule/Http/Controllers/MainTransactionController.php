@@ -79,7 +79,7 @@ class MainTransactionController extends Controller {
                     $message['error'][] = 'Amount should be in balance at both side';
                 }
                 if (count(array_unique($accountId)) < count($accountId)) {
-                    $message['error'][] = 'Amount selection should be unique in both side';
+                    $message['error'][] = 'Account selection should be unique in both side';
                 }
                 if (!empty($message)) {
                     return response()->json([$message], 422);
