@@ -34,6 +34,10 @@ class Account extends Model {
         return Account::selectRaw('id,concat(name ," ", currentBalance,"Rs") as concatNameCurrentBalance')->get()->toArray();
     }
 
+    public static function currentBalanceByaccountId($id) {
+        return Account::select('currentBalance')->where('id', '=', $id)->get();
+    }
+
     public static function dataOperation($request) {
         if ($request->method() == 'GET') {
             if ($request->id) {

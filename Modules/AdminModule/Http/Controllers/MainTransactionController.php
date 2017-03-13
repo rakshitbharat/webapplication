@@ -52,6 +52,12 @@ class MainTransactionController extends Controller {
                         if (!$requestAlls['debit']) {
                             $message['error'][] = 'Amount debit is empty in debit side';
                         } else {
+                            if ($requestAlls['accountId']) {
+                                $account = Account::currentBalanceByaccountId($requestAlls['accountId']);
+                                if ($requestAlls['debit'] > $account[0]['currentBalance']) {
+                                    $message['error'][] = 'One or more debit amount have Insufficient Balance in selected account';
+                                }
+                            }
                             $totalDebitAmount += $requestAlls['debit'];
                         }
                     }
@@ -59,6 +65,12 @@ class MainTransactionController extends Controller {
                         if (!$requestAlls['credit']) {
                             $message['error'][] = 'Amount credit is empty in credit side';
                         } else {
+                            if ($requestAlls['accountId']) {
+                                $account = Account::currentBalanceByaccountId($requestAlls['accountId']);
+                                if ($requestAlls['credit'] > $account[0]['currentBalance']) {
+                                    $message['error'][] = 'One or more credit amount have Insufficient Balance in selected account';
+                                }
+                            }
                             $totalCreditAmount += $requestAlls['credit'];
                         }
                     }
@@ -96,6 +108,12 @@ class MainTransactionController extends Controller {
                         if (!$requestAll['debit']['debit']) {
                             $message['error'][] = 'Amount debit is empty in debit side';
                         } else {
+                            if ($requestAll['debit']['accountId']) {
+                                $account = Account::currentBalanceByaccountId($requestAll['debit']['accountId']);
+                                if ($requestAll['debit']['debit'] > $account[0]['currentBalance']) {
+                                    $message['error'][] = 'One or more debit amount have Insufficient Balance in selected account';
+                                }
+                            }
                             $totalDebitAmount += $requestAll['debit']['debit'];
                         }
                     }
@@ -112,6 +130,12 @@ class MainTransactionController extends Controller {
                         if (!$requestAll['credit']['credit']) {
                             $message['error'][] = 'Amount credit is empty in credit side';
                         } else {
+                            if ($requestAll['credit']['accountId']) {
+                                $account = Account::currentBalanceByaccountId($requestAll['credit']['accountId']);
+                                if ($requestAll['credit']['credit'] > $account[0]['currentBalance']) {
+                                    $message['error'][] = 'One or more credit amount have Insufficient Balance in selected account';
+                                }
+                            }
                             $totalCreditAmount += $requestAll['credit']['credit'];
                         }
                     }
