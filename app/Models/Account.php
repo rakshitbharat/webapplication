@@ -30,6 +30,10 @@ class Account extends Model {
         return $this->hasMany(\App\Models\MainTransaction::class, 'accountId', 'id');
     }
 
+    public static function concatNameCurrentBalance() {
+        return Account::selectRaw('id,concat(name ," ", currentBalance,"Rs") as concatNameCurrentBalance')->get()->toArray();
+    }
+
     public static function dataOperation($request) {
         if ($request->method() == 'GET') {
             if ($request->id) {

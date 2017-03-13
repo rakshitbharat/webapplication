@@ -15,8 +15,7 @@ class MainTransactionController extends Controller {
     public $title = 'Main Transaction';
 
     public function index() {
-        $item = Account::selectRaw('id,concat(name ," ", currentBalance,"Rs") as concatNameCurrentBalance')->get()->toArray();
-        return view('adminmodule::MainTransaction.list', array('title' => $this->title, 'item' => $item));
+        return view('adminmodule::MainTransaction.list', array('title' => $this->title));
     }
 
     public function json() {

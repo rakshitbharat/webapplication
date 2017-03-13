@@ -14,8 +14,9 @@
                     </div>
                     <div class='col-sm-5'>
                         <select class='form-control' id='{{ $mainTransactions->id }}debitaccountId' name='transactionCode[{{ $mainTransactions->id }}][accountId]'>
-                            <option></option>{{ $item = App\Models\Account::pluck('name', 'id') }}@foreach($item as $key => $items)
-                            <option value='{{ $key }}'>{{ $items }}</option>@endforeach</select>Account</div>
+                            <option></option>
+                            @foreach(App\Models\Account::concatNameCurrentBalance() as $key => $items)<option value='{{ $items['id'] or '' }}'>{{ $items['concatNameCurrentBalance'] or '' }}</option>@endforeach
+                        </select>Account</div>
                     <div class='col-sm-3'>
                         <input type='number' class='form-control' id='amount' min='0' name='transactionCode[{{ $mainTransactions->id }}][debit]' value='{{ $mainTransactions->debit }}'>
                         <div class='help'>Amount</div>
@@ -48,8 +49,9 @@
                     </div>
                     <div class='col-sm-5'>
                         <select class='form-control' id='{{ $mainTransactions->id }}creditaccountId' name='transactionCode[{{ $mainTransactions->id }}][accountId]'>
-                            <option></option>{{ $item = App\Models\Account::pluck('name', 'id') }}@foreach($item as $key => $items)
-                            <option value='{{ $key }}'>{{ $items }}</option>@endforeach</select>Account</div>
+                            <option></option>
+                            @foreach(App\Models\Account::concatNameCurrentBalance() as $key => $items)<option value='{{ $items['id'] or '' }}'>{{ $items['concatNameCurrentBalance'] or '' }}</option>@endforeach
+                        </select>Account</div>
                     <div class='col-sm-3'>
                         <input type='number' class='form-control' id='amount' min='0' name='transactionCode[{{ $mainTransactions->id }}][credit]' value='{{ $mainTransactions->credit }}'>
                         <div class='help'>Amount</div>
