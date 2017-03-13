@@ -23,13 +23,13 @@
                             @endif
                             <div id="form-errors"></div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="name" id="name" value='{{ old('name') }}'>
                                         <label for="form_control_1">Name</label>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <input type="text" class="form-control" name='email' id="email" value='{{ old('email') }}'>
                                         <label for="form_control_1">Email</label>
@@ -37,13 +37,13 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <input type="password" class="form-control" name='password' id="password" value='{{ old('password') }}'>
                                         <label for="form_control_1">Password</label>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <input type="password" class="form-control" name='password_confirmation' id="password-confirm">
                                         <label for="form_control_1">Confirm Password</label>
@@ -57,7 +57,9 @@
                     <div class="margiv-top-10">
                         <div class="form-actions noborder">
                             <button type="submit" class="btn blue">Add</button>
-                            <a href="{!! route('admin_usermanagement.index') !!}" class="btn default">Back</a>
+                            <a href="{!! route('admin_usermanagement.index') !!}" class="btn default">
+                                <button type="button" class="btn btn-danger">Back</button>
+                            </a>
                         </div>
                     </div>
                     {{ Form::close() }}
