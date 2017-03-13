@@ -18,7 +18,7 @@ class MainTransactionController extends Controller {
     }
 
     public function json() {
-        $all_category = MainTransaction::selectRaw('*, sum(debit) as sumDebit, sum(credit) as sumCredit')->groupBy('mainTransaction.transactionCode');
+        $all_category = MainTransaction::selectRaw('id,description,transactionCode,updated_at,sum(credit) as sumCredit')->groupBy('mainTransaction.transactionCode');
         return Datatables::of($all_category)
                         ->addIndexColumn()
                         ->addColumn('action', function ($data) {

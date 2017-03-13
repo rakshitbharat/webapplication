@@ -1,0 +1,14 @@
+'log_level' => env('APP_LOG_LEVEL', 'error'),
+Monolog recognizes the following severity levels - from least severe to most severe: 
+debug, info, notice, warning, error, critical, alert, emergency.
+
+'APP_DEBUG'
+The environment is either local OR staging OR production ...
+
+
+for example 
+APP_ENV=production
+APP_KEY=base64:ekotl2FRKDe6NjjlgPD4I6P4BPJ4Biap0t5nIQGfMw4=
+APP_DEBUG=false
+APP_LOG_LEVEL=emergency
+APP_URL=http://localhost

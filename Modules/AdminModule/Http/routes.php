@@ -29,5 +29,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminAuth', 'as' => 'admin_'
     Route::any('contactJson', 'ContactController@json')->name('contactJson');
     Route::any('contactAddEdit', 'ContactController@addEdit')->name('contactAddEdit');
 
+    Route::any('setting', 'SettingController@index')->name('setting');
+
     Route::get('/home', 'HomeController@index')->name('home');
 });

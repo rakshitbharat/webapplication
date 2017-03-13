@@ -23,8 +23,7 @@
                                     <tr>
                                         <th width="20px">No</th>
                                         <th>Latest Description</th>
-                                        <th>Debit Total</th>
-                                        <th>Credit Total</th>
+                                        <th>Transaction Total</th>
                                         <th>Latest Transaction Code</th>
                                         <th>Updated At</th>
                                         <th  width="130px">Action</th>
@@ -133,7 +132,6 @@
         columns: [
             {data: 'id'},
             {data: 'description'},
-            {data: 'sumDebit', name: 'debit'},
             {data: 'sumCredit', name: 'credit'},
             {data: 'transactionCode'},
             {data: 'updated_at'},
