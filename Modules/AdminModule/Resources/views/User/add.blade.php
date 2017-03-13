@@ -3,62 +3,65 @@
 <div class="row">
     <div class="col-md-12">
         <!-- BEGIN SAMPLE FORM PORTLET-->
-        <div class="portlet light bordered">
-            <div class="portlet-title">
-                <div class="caption">
-                    <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject font-dark sbold uppercase"> Add {{ $title }}</span>
-                </div>
+        <div class="box">
+            <div class="box-header">
+                <span class="caption-subject font-blue-madison bold uppercase"><strong>Add {{ $title }}</strong></span>
             </div>
-            <div class="portlet-body form">
-                {{ Form::open(['role'=>'form','id'=>'myform','method' => 'POST','novalidate'=>'novalidate','enctype'=>'multipart/form-data']) }}
-                <div class="form-body">
-                    @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+            <div class="box-body">
+                <div class="tab-content">
+                    <div class="form">
+                        {{ Form::open(['role'=>'form','id'=>'myform','method' => 'POST','novalidate'=>'novalidate','enctype'=>'multipart/form-data']) }}
+                        <div class="form-body">
+                            @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
+                            <div id="form-errors"></div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="name" id="name" value='{{ old('name') }}'>
+                                        <label for="form_control_1">Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name='email' id="email" value='{{ old('email') }}'>
+                                        <label for="form_control_1">Email</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name='password' id="password" value='{{ old('password') }}'>
+                                        <label for="form_control_1">Password</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name='password_confirmation' id="password-confirm">
+                                        <label for="form_control_1">Confirm Password</label>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="confirmed" name='confirmed' value="1">
+                                <input type="hidden" id="role" name='role' value="admin">
+                            </div>
+                        </div>
                     </div>
-                    @endif
-                    <div id="form-errors"></div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group form-md-line-input form-md-floating-label has-success">
-                                <input type="text" class="form-control" name='name' id="name" value='{{ old('name') }}'>
-                                <label for="form_control_1">Name</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-md-line-input form-md-floating-label has-success">
-                                <input type="text" class="form-control" name='email' id="email" value='{{ old('email') }}'>
-                                <label for="form_control_1">Email</label>
-                            </div>
+                    <div class="margiv-top-10">
+                        <div class="form-actions noborder">
+                            <button type="submit" class="btn blue">Add</button>
+                            <a href="{!! route('admin_usermanagement.index') !!}" class="btn default">Back</a>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group form-md-line-input form-md-floating-label has-success">
-                                <input type="password" class="form-control" name='password' id="password" value='{{ old('password') }}'>
-                                <label for="form_control_1">Password</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-md-line-input form-md-floating-label has-success">
-                                <input type="password" class="form-control" name='password_confirmation' id="password-confirm">
-                                <label for="form_control_1">Confirm Password</label>
-                            </div>
-                        </div>
-                        <input type="hidden" id="confirmed" name='confirmed' value="1">
-                        <input type="hidden" id="role" name='role' value="admin">
-                    </div>
+                    {{ Form::close() }}
                 </div>
-                <div class="form-actions noborder">
-                    <button type="submit" class="btn blue">Add</button>
-                    <a href="{!! route('admin_usermanagement.index') !!}" class="btn default">Back</a>
-                </div>
-                {{ Form::close() }}
             </div>
         </div>
     </div>
