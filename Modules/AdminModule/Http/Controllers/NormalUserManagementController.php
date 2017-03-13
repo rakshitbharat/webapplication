@@ -22,7 +22,7 @@ class NormalUserManagementController extends Controller {
     }
 
     public function json() {
-        $all_category = User::where('role', '!=', 'admin')->select('*')->orderBy('id', 'desc');
+        $all_category = User::where('role', '!=', 'admin')->select('*');
         return Datatables::of($all_category)
                         ->addIndexColumn()
                         ->editColumn('locked', function ($data) {

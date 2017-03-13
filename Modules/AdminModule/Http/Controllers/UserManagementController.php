@@ -22,7 +22,7 @@ class UserManagementController extends Controller {
     }
 
     public function json() {
-        $all_category = User::where('role', '!=', 'normal')->select('*')->orderBy('id', 'desc');
+        $all_category = User::where('role', '!=', 'normal')->select('*');
         return Datatables::of($all_category)
                         ->editColumn('locked', function ($data) {
                             if ($data->id == Auth::id()) {

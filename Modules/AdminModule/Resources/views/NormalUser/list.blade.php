@@ -8,13 +8,13 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-              <h2 class="box-title"><strong>{{ $title }}</strong></h2>
-              <div class="box-tools pull-right">
-                <div class="btn-group">
-                    <a href="{{ Request::url() }}/create" class="btn btn-box-tool"><span class="glyphicon glyphicon-plus"></span>Add {{ $title }}</a>
+                    <h2 class="box-title"><strong>{{ $title }}</strong></h2>
+                    <div class="box-tools pull-right">
+                        <div class="btn-group">
+                            <a href="{{ Request::url() }}/create" class="btn btn-box-tool"><span class="glyphicon glyphicon-plus"></span>Add {{ $title }}</a>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
                 <div class="box-body">
                     <div class="portlet-body">
                         <div class="table-container">
@@ -126,8 +126,8 @@
                                 if (data == 2) {
                                     flashMessage('success', 'No Changes');
                                 }
-                                var dataTable = $('#dataTableBuilder').dataTable();
-                                dataTable.fnFilter(this.value);
+                                var table = $('#dataTableBuilder').dataTable();
+                                table.fnDraw(false);
                             }
                         }
                         );
