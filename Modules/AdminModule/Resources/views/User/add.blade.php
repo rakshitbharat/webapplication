@@ -58,7 +58,7 @@
                         <div class="form-actions noborder">
                             <button type="submit" class="btn blue">Add</button>
                             <a href="{!! route('admin_usermanagement.index') !!}" class="btn default">
-                                <button type="button" class="btn btn-danger">Back</button>
+                                <button type="button" class="btn btn-primary">Back</button>
                             </a>
                         </div>
                     </div>
