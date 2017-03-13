@@ -8,13 +8,15 @@ use App\Models\MainTransaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\Datatables\Datatables;
+use App\Models\Account;
 
 class MainTransactionController extends Controller {
 
     public $title = 'Main Transaction';
 
     public function index() {
-        return view('adminmodule::MainTransaction.list', array('title' => $this->title));
+        $item = Account::selectRaw('id,concat(name ," ", currentBalance,"Rs") as concatNameCurrentBalance')->get()->toArray();
+        return view('adminmodule::MainTransaction.list', array('title' => $this->title, 'item' => $item));
     }
 
     public function json() {
