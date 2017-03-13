@@ -65,12 +65,6 @@ class MainTransactionController extends Controller {
                         if (!$requestAlls['credit']) {
                             $message['error'][] = 'Amount credit is empty in credit side';
                         } else {
-                            if ($requestAlls['accountId']) {
-                                $account = Account::currentBalanceByaccountId($requestAlls['accountId']);
-                                if ($requestAlls['credit'] > $account[0]['currentBalance']) {
-                                    $message['error'][] = 'One or more credit amount have Insufficient Balance in selected account';
-                                }
-                            }
                             $totalCreditAmount += $requestAlls['credit'];
                         }
                     }
@@ -130,12 +124,6 @@ class MainTransactionController extends Controller {
                         if (!$requestAll['credit']['credit']) {
                             $message['error'][] = 'Amount credit is empty in credit side';
                         } else {
-                            if ($requestAll['credit']['accountId']) {
-                                $account = Account::currentBalanceByaccountId($requestAll['credit']['accountId']);
-                                if ($requestAll['credit']['credit'] > $account[0]['currentBalance']) {
-                                    $message['error'][] = 'One or more credit amount have Insufficient Balance in selected account';
-                                }
-                            }
                             $totalCreditAmount += $requestAll['credit']['credit'];
                         }
                     }
@@ -150,7 +138,7 @@ class MainTransactionController extends Controller {
                     $message['error'][] = 'Amount should be in balance at both side';
                 }
                 if (count(array_unique($accountId)) < count($accountId)) {
-                    $message['error'][] = 'Amount selection should be unique in both side';
+                    $message['error'][] = 'Account selection should be unique in both side';
                 }
                 if (!empty($message)) {
                     return response()->json([$message], 422);
