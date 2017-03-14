@@ -32,11 +32,11 @@ class Account extends Model {
     }
 
     public static function concatNameCurrentBalance() {
-        return Account::selectRaw("concat(name,' ',COALESCE(openingBalance, 0) + COALESCE(currentBalance, 0),'Rs') AS concatNameCurrentBalance,id")->get()->toArray();
+        return Account::selectRaw("concat(name,' ',SUM( COALESCE( currentBalance, 0 ) + COALESCE( openingBalance, 0 )),'Rs') AS concatNameCurrentBalance,id")->get()->toArray();
     }
 
     public static function currentBalanceByaccountId($id) {
-        return Account::selectRaw("COALESCE(openingBalance, 0) + COALESCE(currentBalance, 0) as currentBalanceNew")->where('id', '=', $id)->get();
+        return Account::selectRaw("SUM( COALESCE( currentBalance, 0 ) + COALESCE( openingBalance, 0 )) as currentBalanceNew")->where('id', '=', $id)->get();
     }
 
     public static function dataOperation($request) {
