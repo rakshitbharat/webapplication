@@ -54,7 +54,7 @@ class MainTransactionController extends Controller {
                         } else {
                             if ($requestAlls['accountId']) {
                                 $account = Account::currentBalanceByaccountId($requestAlls['accountId']);
-                                if ($requestAlls['debit'] > $account[0]['currentBalance']) {
+                                if ($requestAlls['debit'] > $account[0]['currentBalanceNew']) {
                                     $message['error'][] = 'One or more debit amount have Insufficient Balance in selected account';
                                 }
                             }
@@ -104,7 +104,7 @@ class MainTransactionController extends Controller {
                         } else {
                             if ($requestAll['debit']['accountId']) {
                                 $account = Account::currentBalanceByaccountId($requestAll['debit']['accountId']);
-                                if ($requestAll['debit']['debit'] > $account[0]['currentBalance']) {
+                                if ($requestAll['debit']['debit'] > $account[0]['currentBalanceNew']) {
                                     $message['error'][] = 'One or more debit amount have Insufficient Balance in selected account';
                                 }
                             }

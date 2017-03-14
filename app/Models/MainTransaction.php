@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Validator;
 use Auth;
+use App\Models\Account;
 
 class MainTransaction extends Model {
 
@@ -37,6 +38,7 @@ class MainTransaction extends Model {
                     $MainTransaction = MainTransaction::find($requestAlls['id']);
                     $MainTransaction->update(array_merge($requestAlls, ['userId' => Auth::user()->id]));
                 }
+                Account::syncCurrentBalance();
                 exit;
             } else {
                 $MainTransaction = new MainTransaction();
@@ -49,6 +51,7 @@ class MainTransaction extends Model {
                         $MainTransaction->create(array_merge($requestInPart['credit'], ['transactionCode' => $uniqueValue, 'userId' => Auth::user()->id]));
                     }
                 }
+                Account::syncCurrentBalance();
                 exit;
             }
         }
