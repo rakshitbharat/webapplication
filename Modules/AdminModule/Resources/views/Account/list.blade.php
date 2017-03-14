@@ -168,11 +168,6 @@
             $('#id').val(null);
             $('#accountTypeId').val(null).trigger("change");
         });
-        $("#openingBalance").keyup(function () {
-            if($('#id').val() == ''){
-                $('#currentBalance').val(this.value);
-            }
-        });
         $('form#addEdit').validate({
             rules: {},
             messages: {},

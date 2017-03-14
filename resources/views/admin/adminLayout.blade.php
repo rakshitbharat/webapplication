@@ -30,21 +30,56 @@
         <script type = "text/javascript">
 $(document).ready(function () {
 
-    $('#loadingCircle').hide();
     $(document).ajaxSend(function (event, request, settings) {
-        $('#loadingCircle').show();
+        Command: toastr["info"]("Working");
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-left",
+            "preventDuplicates": true,
+            "preventOpenDuplicates": true,
+            "onclick": null,
+            "showDuration": "99999",
+            "hideDuration": "99999",
+            "timeOut": "99999",
+            "extendedTimeOut": "99999",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
     });
     $(document).ajaxStart(function () {
-        $('#loadingCircle').show();
+        Command: toastr["info"]("Working");
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-left",
+            "preventDuplicates": true,
+            "preventOpenDuplicates": true,
+            "onclick": null,
+            "showDuration": "99999",
+            "hideDuration": "99999",
+            "timeOut": "99999",
+            "extendedTimeOut": "99999",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
     });
     $(document).ajaxComplete(function (event, request, settings) {
-        $('#loadingCircle').hide();
+        toastr.clear();
     });
     $(document).ajaxError(function (event, request, settings) {
-        $('#loadingCircle').hide();
+        toastr.clear();
     });
     $(document).ajaxStop(function () {
-        $('#loadingCircle').hide();
+        toastr.clear();
     });
     setTimeout(function () {
         $('.msgBoxCont').hide();
