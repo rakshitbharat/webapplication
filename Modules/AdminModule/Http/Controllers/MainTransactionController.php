@@ -24,8 +24,8 @@ class MainTransactionController extends Controller {
                         ->addIndexColumn()
                         ->addColumn('action', function ($data) {
                             $tableName = 'mainTransaction';
-                            $string = "<a href='javascript:;' onclick=edit('$data->transactionCode','$tableName') class='btn btn-xs btn-primary'><i class='glyphicon glyphicon-edit'></i> Edit</a>"
-                                    . "<a href='javascript:;' onclick=mainTransactionDeleteByTransactionCode('$data->transactionCode') class='btn btn-xs btn-danger'><i class='glyphicon glyphicon-remove-circle'></i> Delete</a>";
+                            $string = "<a href='javascript:;' onclick=edit('$data->transactionCode','$tableName') class='btn btn-xs btn-primary'><i class='glyphicon glyphicon-edit'></i> Edit Description</a>";
+                                     
                             return $string;
                         })
                         ->make(true);
@@ -155,7 +155,8 @@ class MainTransactionController extends Controller {
     }
 
     public function deleteByTransactionCode(Request $request) {
-        return MainTransaction::where('transactionCode', '=', $request->transactionCode)->delete();
+        MainTransaction::where('transactionCode', '=', $request->transactionCode)->delete();
+        Account::syncCurrentBalance();
     }
 
 }

@@ -18,7 +18,7 @@
                             @foreach(App\Models\Account::concatNameCurrentBalance() as $key => $items)<option value='{{ $items['id'] or '' }}'>{{ $items['concatNameCurrentBalance'] or '' }}</option>@endforeach
                         </select>Account</div>
                     <div class='col-sm-3'>
-                        <input type='number' class='form-control' id='amount' min='0' name='transactionCode[{{ $mainTransactions->id }}][debit]' value='{{ $mainTransactions->debit }}'>
+                        <input type='number' class='form-control' id='amount' min='0' readonly="true" name='transactionCode[{{ $mainTransactions->id }}][debit]' value='{{ $mainTransactions->debit }}'>
                         <div class='help'>Amount</div>
                     </div>
                 </div>
@@ -53,13 +53,14 @@
                             @foreach(App\Models\Account::concatNameCurrentBalance() as $key => $items)<option value='{{ $items['id'] or '' }}'>{{ $items['concatNameCurrentBalance'] or '' }}</option>@endforeach
                         </select>Account</div>
                     <div class='col-sm-3'>
-                        <input type='number' class='form-control' id='amount' min='0' name='transactionCode[{{ $mainTransactions->id }}][credit]' value='{{ $mainTransactions->credit }}'>
+                        <input type='number' class='form-control' id='amount' min='0' readonly="true" name='transactionCode[{{ $mainTransactions->id }}][credit]' value='{{ $mainTransactions->credit }}'>
                         <div class='help'>Amount</div>
                     </div>
                 </div>
                 <input type='hidden' name='transactionCode[{{ $mainTransactions->id }}][id]' value='{{ $mainTransactions->id }}'>
                 <script type = "text/javascript">
                     $("select").select2({
+                        disabled: true,
                         width: '100%',
                     });
                     $('#{{ $mainTransactions->id }}creditaccountId').val('{{ $mainTransactions->accountId }}').trigger("change");
