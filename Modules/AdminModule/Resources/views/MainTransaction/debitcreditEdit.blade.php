@@ -13,12 +13,12 @@
                         <div class='help'>Description</div>
                     </div>
                     <div class='col-sm-5'>
-                        <select class='form-control' id='{{ $mainTransactions->id }}debitaccountId' name='transactionCode[{{ $mainTransactions->id }}][accountId]'>
+                        <select class='form-control' id='{{ $mainTransactions->id }}debitaccountId'>
                             <option></option>
                             @foreach(App\Models\Account::concatNameCurrentBalance() as $key => $items)<option value='{{ $items['id'] or '' }}'>{{ $items['concatNameCurrentBalance'] or '' }}</option>@endforeach
                         </select>Account</div>
                     <div class='col-sm-3'>
-                        <input type='number' class='form-control' id='amount' min='0' readonly="true" name='transactionCode[{{ $mainTransactions->id }}][debit]' value='{{ $mainTransactions->debit }}'>
+                        <input type='number' class='form-control' id='amount' min='0' readonly="true" value='{{ $mainTransactions->debit }}'>
                         <div class='help'>Amount</div>
                     </div>
                 </div>
@@ -48,12 +48,12 @@
                         <div class='help'>Description</div>
                     </div>
                     <div class='col-sm-5'>
-                        <select class='form-control' id='{{ $mainTransactions->id }}creditaccountId' name='transactionCode[{{ $mainTransactions->id }}][accountId]'>
+                        <select class='form-control' id='{{ $mainTransactions->id }}creditaccountId'>
                             <option></option>
                             @foreach(App\Models\Account::concatNameCurrentBalance() as $key => $items)<option value='{{ $items['id'] or '' }}'>{{ $items['concatNameCurrentBalance'] or '' }}</option>@endforeach
                         </select>Account</div>
                     <div class='col-sm-3'>
-                        <input type='number' class='form-control' id='amount' min='0' readonly="true" name='transactionCode[{{ $mainTransactions->id }}][credit]' value='{{ $mainTransactions->credit }}'>
+                        <input type='number' class='form-control' id='amount' min='0' readonly="true" value='{{ $mainTransactions->credit }}'>
                         <div class='help'>Amount</div>
                     </div>
                 </div>
