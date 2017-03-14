@@ -60,7 +60,7 @@ class Account extends Model {
     }
 
     public static function syncCurrentBalance() {
-        $getCurrentBalance = 'SELECT SUM(COALESCE(credit, 0) - COALESCE(debit, 0)) AS currentBalance,accountId FROM `maintransaction` GROUP BY accountId';
+        $getCurrentBalance = 'SELECT SUM(COALESCE(credit, 0) - COALESCE(debit, 0)) AS currentBalance,accountId FROM `mainTransaction` GROUP BY accountId';
         $getCurrentBalance = DB::select($getCurrentBalance);
         foreach ($getCurrentBalance as $getCurrentBalances) {
             $Account = Account::find($getCurrentBalances->accountId);
