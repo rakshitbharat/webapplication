@@ -159,4 +159,12 @@ class MainTransactionController extends Controller {
         Account::syncCurrentBalance();
     }
 
+    public function debitEntryHtml(Request $request) {
+        return view('adminmodule::MainTransaction.debitPart', array('uniqueidmaker' => MainTransaction::uniqueValue()));
+    }
+
+     public function creditEntryHtml(Request $request) {
+        return view('adminmodule::MainTransaction.creditPart', array('uniqueidmaker' => MainTransaction::uniqueValue()));
+    }
+
 }

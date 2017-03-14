@@ -152,18 +152,20 @@
         $('#addModel').modal('show');
     });
     $("#debitSideAdder").click(function () {
-        var uniqueidmaker = uniqId();
-        $("#debitSideBody").append("@include('adminmodule::MainTransaction.debitPart')");
-        $("select").select2({
-            width: '100%',
-        });
+        $.post( "{{ route('admin_debitEntryHtml') }}", function(data) {
+            $( "#debitSideBody" ).append(data);
+            $("select").select2({
+                width: '100%',
+            });
+       });
     });
     $("#creditSideAdder").click(function () {
-        var uniqueidmaker = uniqId();
-        $("#creditSideBody").append("@include('adminmodule::MainTransaction.creditPart')");
-        $("select").select2({
-            width: '100%',
-        });
+        $.post( "{{ route('admin_creditEntryHtml') }}", function(data) {
+            $( "#creditSideBody" ).append(data);
+            $("select").select2({
+                width: '100%',
+            });
+       });
     });
     $('form#addEdit').validate({
         rules: {},
@@ -239,9 +241,6 @@
             return false;
         }
     });
-    function uniqId() {
-        return Math.round(new Date().getTime() + (Math.random() * 100));
-    }
     function removeSelf(object) {
         $(object).parent().parent().remove();
     }
