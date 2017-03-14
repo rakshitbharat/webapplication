@@ -167,3 +167,5 @@ php artisan doctrine:mapping:import annotation create in annotation type.
 - ---------------------------------------------------------
 - php artisan models:generate --overwrite -----------------
 -----------------------------------------------------------
+
+UPDATE account SET currentBalance = openingBalance
