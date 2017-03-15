@@ -1,0 +1,15 @@
+{
+    "name": "FrontModule",
+    "alias": "frontmodule",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\FrontModule\\Providers\\FrontModuleServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}
