@@ -8,9 +8,9 @@
 
             <div class="col-five tab-full footer-about">       
 
-                <h4 class="h05">Infinity.</h4>
+                <h4 class="h05">Timestart Infotech.</h4>
 
-                <p>Proin eget tortor risus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt. Proin eget tortor risus.</p>	            
+                <p>Timestart Infotech is a creative digital agency based in Gujarat, India. We are composed of creative designers and experienced developers.</p>	            
 
             </div> <!-- end footer-about -->
 
@@ -32,7 +32,7 @@
 
                 <h4 class="h05">Get Notified.</h4>
 
-                <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Praesent sapien massa.</p>
+                <p>Subscribe to our updates. Enter your email below.</p>
 
                 <div class="subscribe-form">
 
@@ -61,7 +61,7 @@
 
             <div class="col-twelve">
                 <div class="copyright">
-                    <span>© Copyright Infinity 2016.</span> 
+                    <span>© Copyright Timestart infotech 2017.</span> 
                     <span>Design by <a href="http://www.styleshout.com/">styleshout</a></span>		         	
                 </div>		               
             </div>
