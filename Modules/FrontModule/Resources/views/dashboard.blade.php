@@ -69,7 +69,7 @@
 
             <div class="intro">
                 <h3 class="animate-this">About Us</h3>
-                <p class="lead animate-this"><span>Infinity</span> is a creative digital agency based in Manila, Philippines. We are composed of creative designers and experienced developers.</p>	
+                <p class="lead animate-this"><span>Timestart Infotech</span> is a creative digital agency based in Gujarat, India. We are composed of creative designers and experienced developers.</p>	
             </div>   
 
         </div> <!-- end col-full  -->
@@ -91,7 +91,7 @@
             <h3>Services</h3>
             <h1>What We Do.</h1>
 
-            <p class="lead">Lorem ipsum Elit ut consequat veniam eu nulla nulla reprehenderit reprehenderit sit velit in cupidatat ex aliquip ut cupidatat Excepteur tempor id irure sed dolore sint sunt voluptate ullamco nulla qui Duis qui culpa voluptate enim ea aute qui veniam in irure et nisi nostrud deserunt est officia minim.</p>
+            <p class="lead">At Timestart, we provide value driven development services to our clients. Our veteran experts will guide you through the entire stages of development life cycle i.e. right from idea conceptualization to product deployment. We follow stringent industry standards to deliver the high-end product to our users.</p>
 
         </div> <!-- end col-full -->
     </div> <!-- end row -->
@@ -158,251 +158,6 @@
 
 </section> <!-- end services -->
 
-
-<!-- portfolio
-================================================== -->
-<section id="portfolio">
-
-    <div class="intro-wrap">
-
-        <div class="row narrow section-intro with-bottom-sep animate-this">
-            <div class="col-twelve">
-                <h3>Showcase</h3>
-                <h1>See Our Featured Projects.</h1>  			
-
-                <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute Excepteur amet commodo ea dolore irure esse Duis nulla sint fugiat cillum ullamco proident aliquip quis qui voluptate dolore veniam Ut laborum non est in officia.</p>	   			
-            </div>   		
-        </div> <!-- end row section-intro -->   		
-
-    </div> <!-- end intro-wrap -->   	
-
-    <div class="row portfolio-content">
-        <div class="col-twelve">
-            <div id="folio-wrap" class="bricks-wrapper">					
-
-                <div class="brick folio-item">
-                    <div class="item-wrap animate-this" data-src="images/portfolio/gallery/g-shutterbug.jpg" data-sub-html="#01" > 	
-                        <a href="#" class="overlay">
-                            <img src="images/portfolio/shutterbug.jpg" alt="Skaterboy">	                     
-                            <div class="item-text">
-                                <span class="folio-types">
-                                    Web Development
-                                </span>
-                                <h3 class="folio-title">Shutterbug</h3>	     					   
-                            </div>                                        
-                        </a>
-                        <a href="https://www.behance.net/" class='details-link' title="details">
-                            <i class="icon-link"></i>
-                        </a>
-                    </div> <!-- end item-wrap -->
-
-                    <div id="01" class='hide'>
-                        <h4>Shutterbug</h4>
-                        <p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="https://www.behance.net/">Details</a></p>
-                    </div>
-                </div> <!-- end folio-item -->
-
-                <div class="brick folio-item">
-                    <div class="item-wrap animate-this" data-src="images/portfolio/gallery/g-yellowwall.jpg" data-sub-html="#02"> 	
-                        <a href="#" class="overlay">
-                            <img src="images/portfolio/yellowwall.jpg" alt="Shutterbug">	                     
-                            <div class="item-text">
-                                <span class="folio-types">
-                                    Marketing
-                                </span>
-                                <h3 class="folio-title">Yellow Wall</h3>  	     					   
-                            </div>                                        
-                        </a>
-                        <a href="https://www.behance.net/" class='details-link' title="details">
-                            <i class="icon-link"></i>
-                        </a>
-                    </div> <!-- end item-wrap -->
-
-                    <div id="02" class='hide'>
-                        <h4>Yellow Wall</h4>
-                        <p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="https://www.behance.net/">Details</a></p>
-                    </div>	               
-                </div> <!-- end folio-item -->
-
-                <div class="brick folio-item">
-                    <div class="item-wrap animate-this" data-src="images/portfolio/gallery/g-architecture.jpg" data-sub-html="#03" >   	
-                        <a href="#" class="overlay">
-                            <img src="images/portfolio/architecture.jpg" alt="Explore">	                     
-                            <div class="item-text">	                     		     					    
-                                <span class="folio-types">
-                                    Web Design
-                                </span>
-                                <h3 class="folio-title">Architecture</h3>
-                            </div>                                        
-                        </a>
-                        <a href="https://www.behance.net/" class='details-link' title="details">
-                            <i class="icon-link"></i>
-                        </a>
-                    </div> <!-- end item-wrap -->	
-
-                    <div id="03" class='hide'>
-                        <h4>Architecture</h4>
-                        <p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="https://www.behance.net/">Details</a></p>
-                    </div>               
-                </div> <!-- end folio-item -->
-
-                <div class="brick folio-item">
-                    <div class="item-wrap animate-this"  data-src="images/portfolio/gallery/g-minimalismo.jpg"  data-sub-html="#04" >
-                        <a href="#" class="overlay">
-                            <img src="images/portfolio/minimalismo.jpg" alt="Minimalismo">	                     
-                            <div class="item-text">	     					    
-                                <span class="folio-types">
-                                    Web Design
-                                </span>
-                                <h3 class="folio-title">Minimalismo</h3>
-                            </div>                                        
-                        </a>
-                        <a href="https://www.behance.net/" class='details-link' title="details">
-                            <i class="icon-link"></i>
-                        </a>
-                    </div> <!-- end item-wrap -->
-
-                    <div id="04" class='hide'>
-                        <h4>Minimalismo</h4>
-                        <p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="https://www.behance.net/">Details</a></p>
-                    </div>  	               
-                </div> <!-- end folio-item -->
-
-                <div class="brick folio-item">
-                    <div class="item-wrap animate-this"  data-src="images/portfolio/gallery/g-skaterboy.jpg"  data-sub-html="#05" >  	
-                        <a href="#" class="overlay">
-                            <img src="images/portfolio/skaterboy.jpg" alt="Bicycle">	                     
-                            <div class="item-text">	     					    
-                                <span class="folio-types">
-                                    Branding
-                                </span>
-                                <h3 class="folio-title">Skaterboy</h3>
-                            </div>                                        
-                        </a>
-                        <a href="https://www.behance.net/" class='details-link' title="details">
-                            <i class="icon-link"></i>
-                        </a>
-                    </div> <!-- end item-wrap -->
-
-                    <div id="05" class='hide'>
-                        <h4>Skaterboy</h4>
-                        <p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="https://www.behance.net/">Details</a></p>
-                    </div>	               
-                </div> <!-- end folio-item -->
-
-                <div class="brick folio-item">
-                    <div class="item-wrap animate-this"  data-src="images/portfolio/gallery/g-salad.jpg"  data-sub-html="#06">     	
-                        <a href="#" class="overlay">
-                            <img src="images/portfolio/salad.jpg" alt="Salad">	                     
-                            <div class="item-text">	     					    
-                                <span class="folio-types">
-                                    Branding
-                                </span>
-                                <h3 class="folio-title">Salad</h3>
-                            </div>                                        
-                        </a>
-                        <a href="https://www.behance.net/" class='details-link' title="details">
-                            <i class="icon-link"></i>
-                        </a>
-                    </div> <!-- end item-wrap -->
-
-                    <div id="06" class='hide'>
-                        <h4>Salad</h4>
-                        <p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="www.behance.net">Details</a></p>
-                    </div>	               
-                </div> <!-- end folio-item -->   				
-
-            </div> <!-- end folio-wrap -->
-        </div> <!-- end twelve -->
-    </div> <!-- end portfolio-content -->   	
-
-</section>  <!-- end portfolio -->
-
-
-<!-- Testimonials Section
-================================================== -->
-<section id="testimonials">
-
-    <div class="row">
-        <div class="col-twelve">
-            <h2 class="animate-this">What They Say About Us.</h2>
-        </div>   		
-    </div>   	
-
-    <div class="row flex-container">
-
-        <div id="testimonial-slider" class="flex-slider animate-this">
-
-            <ul class="slides">
-
-                <li>
-                    <p>
-                        Your work is going to fill a large part of your life, and the only way to be truly satisfied is
-                        to do what you believe is great work. And the only way to do great work is to love what you do.
-                        If you haven't found it yet, keep looking. Don't settle. As with all matters of the heart, you'll know when you find it.
-                    </p> 
-
-                    <div class="testimonial-author">
-                        <img src="images/avatars/user-02.jpg" alt="Author image">
-                        <div class="author-info">
-                            Steve Jobs
-                            <span class="position">CEO, Apple.</span>
-                        </div>
-                    </div>                 
-                </li> <!-- end slide -->
-
-                <li>
-                    <p>
-                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-                        Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
-                        nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.    
-                    </p>
-
-                    <div class="testimonial-author">
-                        <img src="images/avatars/user-03.jpg" alt="Author image">
-                        <div class="author-info">
-                            John Doe
-                            <span>CEO, ABC Corp.</span>
-                        </div>
-                    </div>                                         
-                </li> <!-- end slide -->
-
-            </ul> <!-- end slides -->
-
-        </div> <!-- end testimonial-slider -->         
-
-    </div> <!-- end flex-container -->
-
-</section> <!-- end testimonials -->
-
-
-<!-- stats
-================================================== -->
-<section id="clients">
-
-    <div class="row animate-this">
-        <div class="col-twelve">
-
-            <div class="client-lists owl-carousel">
-                <div><img src="images/clients/mozilla.png" alt=""></div>
-                <div><img src="images/clients/bower.png" alt=""></div>
-                <div><img src="images/clients/codepen.png" alt=""></div>
-                <div><img src="images/clients/envato.png" alt=""></div>
-                <div><img src="images/clients/firefox.png" alt=""></div>
-                <div><img src="images/clients/grunt.png" alt=""></div>
-                <div><img src="images/clients/evernote.png" alt=""></div>
-                <div><img src="images/clients/github.png" alt=""></div>
-                <div><img src="images/clients/joomla.png" alt=""></div>
-                <div><img src="images/clients/jQuery.png" alt=""></div>
-                <div><img src="images/clients/wordpress.png" alt=""></div>
-            </div>
-
-        </div> <!-- end col-twelve -->
-    </div> <!-- end row -->
-
-</section> <!-- end clients -->
-
-
 <!-- contact
 ================================================== -->
 <section id="contact">
@@ -413,8 +168,6 @@
         <div class="col-twelve">
             <h3>Contact</h3>
             <h1>Get In Touch.</h1>
-
-            <p class="lead">Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
         </div> 
     </div> <!-- end section-intro -->
 
@@ -480,26 +233,25 @@
             <div class="cinfo">
                 <h6>Where to Find Us</h6>
                 <p>
-                    1600 Amphitheatre Parkway<br>
-                    Mountain View, CA<br>
-                    94043 US
+                    7 Park View,<br>
+                    Nr Asopalav Party Plot,<br>
+                    Opp Company Petrol Pump,<br>
+                    Anandnagar Road, Satellite,<br>
+                    Ahmedabad - 380015
                 </p>
             </div> <!-- end cinfo -->
 
             <div class="cinfo">
                 <h6>Email Us At</h6>
                 <p>
-                    someone@infinitysite.com<br>
-                    info@infinitysite.com			     
+                    info@timestart.in			     
                 </p>
             </div> <!-- end cinfo -->
 
             <div class="cinfo">
                 <h6>Call Us At</h6>
                 <p>
-                    Phone: (+63) 555 1212<br>
-                    Mobile: (+63) 555 0100<br>
-                    Fax: (+63) 555 0101
+                    Mobile: (+91) 8000 263443
                 </p>
             </div>
 
