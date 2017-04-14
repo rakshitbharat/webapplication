@@ -29,7 +29,12 @@ class Location extends Model {
                                     return $string;
                                 })
                                 ->make(true);
-            }if ($request->id) {
+            }
+            if ($request->delete == 'yes' && $request->id) {
+                self::find($request->id)->delete();
+                return 'done';
+            }
+            if ($request->id) {
                 return self::find($request->id);
             } else {
                 return self::all();
