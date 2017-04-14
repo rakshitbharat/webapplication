@@ -62,6 +62,7 @@ class Country extends Model {
         return Validator::make(
                         $request, [
                     'title' => 'required|max:255|min:2',
+                    'status' => 'required',
         ]);
     }
 

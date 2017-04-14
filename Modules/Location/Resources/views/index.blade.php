@@ -1,6 +1,6 @@
 @extends('admin.adminLayout')
 @section('content')
-<button type="button" id="add" onclick="$('#edit').modal('show');$('#form-errors').html('');$('#addEdit')[0].reset();$('#id').val(null);" class="btn btn-box-tool"><i class="fa fa-plus"></i> Add {{ $title }}</button>
+<button type="button" id="add" onclick="$('#edit').modal('show');$('#addEdit')[0].reset();$('#id').val(null);" class="btn btn-box-tool"><i class="fa fa-plus"></i> Add {{ $title }}</button>
 <table class="table table-striped table-bordered table-hover table-checkable" id="dataTableBuilder">
     <thead>
         <tr>
@@ -75,14 +75,25 @@
             },
             error: function (jqXhr) {
                 if (jqXhr.status === 422) {
-                    errorsHtml = '<div class="alert alert-danger"><ul>';
                     $.each(jqXhr.responseJSON, function (key, value) {
-                        errorsHtml += '<li>' + value[0] + '</li>';
+                        $('input[name="' + key + '"]').notify(
+                                value,
+                                {position: "top"}
+                        );
+                        $('textarea[name="' + key + '"]').notify(
+                                value,
+                                {position: "top"}
+                        );
+                        $("select[name=" + key + "]").notify(
+                                value,
+                                {position: "top"}
+                        );
+                        $("select[name=" + key + "]").notify(
+                                value,
+                                {position: "top"}
+                        );
                     });
-                    errorsHtml += '</ul></di>';
-                    $('#form-errors').html(errorsHtml);
                 } else {
-                    $('#form-errors').html('');
                 }
             }
         });
